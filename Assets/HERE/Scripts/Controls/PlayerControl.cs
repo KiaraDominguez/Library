@@ -10,6 +10,9 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField ] float speed = 1f;
 
+    // pour faire matcher la direction de la camera avec les mouvement du joueur
+    [SerializeField] Transform cam; 
+
     void Awake()
     {
         xAxis = actions.FindActionMap("PlayerMap").FindAction("XAxis");
@@ -34,13 +37,21 @@ public class PlayerControl : MonoBehaviour
 
     private void MoveZ()
     {
+        // prend la position z de la camera
+        Vector3 camForward = cam.forward;
+        camForward.y = 0f;
+
         float zMove = zAxis.ReadValue<float>();
-        transform.position += speed * Time.deltaTime * zMove * transform.forward;
+        transform.position += speed * Time.deltaTime * zMove * camForward;
     }
 
     private void MoveX()
     {
+        // prend la position x de la camera
+        Vector3 camRight = cam.right;
+        camRight.y = 0f;
+
         float xMove = xAxis.ReadValue<float>();
-        transform.position += speed * Time.deltaTime * xMove * transform.right;
+        transform.position += speed * Time.deltaTime * xMove * camRight;
     }
 }
