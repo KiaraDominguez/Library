@@ -4,6 +4,8 @@ using System;
 
 public class PlayerControl : MonoBehaviour
 {
+    private Rigidbody body;
+
     public InputActionAsset actions;
     private InputAction xAxis;
     private InputAction zAxis;
@@ -11,12 +13,22 @@ public class PlayerControl : MonoBehaviour
     [SerializeField ] float speed = 1f;
 
     // pour faire matcher la direction de la camera avec les mouvement du joueur
-    [SerializeField] Transform cam; 
+    [SerializeField] Transform cam;
 
+    // footstep
+    public AudioSource footStepSounds;
+    public Vector3 playerPosBase;
+    public Vector3 playerPosNew;
+    
+    
     void Awake()
     {
+        body = GetComponent<Rigidbody>();
+
         xAxis = actions.FindActionMap("PlayerMap").FindAction("XAxis");
         zAxis = actions.FindActionMap("PlayerMap").FindAction("ZAxis");
+
+        footStepSounds.enabled = false; // désactive le son au début
     }
 
     void OnEnable()
@@ -27,12 +39,19 @@ public class PlayerControl : MonoBehaviour
     void OnDisable()
     {
         actions.FindActionMap("PlayerMap").Disable();
+   
     }
 
     void Update()
     {
+        playerPosBase = transform.position; // stocke la position du player
+
         MoveX();
         MoveZ();
+
+        if (body.IsSleeping()){ playerPosNew = transform.position;} // si le player arrête de bouger stocke la position
+
+        PlayFootstep();
     }
 
     private void MoveZ()
@@ -53,5 +72,14 @@ public class PlayerControl : MonoBehaviour
 
         float xMove = xAxis.ReadValue<float>();
         transform.position += speed * Time.deltaTime * xMove * camRight;
+    }
+
+    private void PlayFootstep()
+    {
+        if (playerPosBase != playerPosNew) 
+        { 
+            footStepSounds.enabled = true;
+        }
+        else { footStepSounds.enabled = false; }
     }
 }
