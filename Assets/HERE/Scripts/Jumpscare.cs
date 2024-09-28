@@ -11,8 +11,6 @@ public class Jumpscare : MonoBehaviour
     private Vector3 behindPosition;
     private bool hasAlreadyAppear;
 
-    [SerializeField] float willDispeppearIn = 1f;
-
     void Start()
     {
         // Calculer la position derrière le joueur
