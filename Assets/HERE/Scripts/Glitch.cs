@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowTheGhost : MonoBehaviour
+public class Glitch : MonoBehaviour
 {
     [SerializeField] GameObject ghost;
 
-
-    void Start()
-    {   
-    }
 
     void Update()
     {
