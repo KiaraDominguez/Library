@@ -3420,7 +3420,7 @@ GameObject:
   - component: {fileID: 1262082757}
   - component: {fileID: 1262082756}
   m_Layer: 0
-  m_Name: TestJumpscare
+  m_Name: TriggerTestJumpscare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
