@@ -24,7 +24,7 @@ public class PhoneCall : MonoBehaviour
         if (callDone) 
         {
             animator.SetBool("calling", false);
-            callDone = true;
+            callDone = false;
         }
     }
 }
