@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jumpscare : MonoBehaviour
 {
-    [SerializeField] GameObject gameObject;
+    [SerializeField] new GameObject gameObject;
     [SerializeField] Transform player;
 
     [SerializeField] float distanceBehind = 5f;
