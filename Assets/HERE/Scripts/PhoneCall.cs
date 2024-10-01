@@ -26,6 +26,8 @@ public class PhoneCall : MonoBehaviour
         //{
             answerCall = !answerCall;
         //}
+        // je voudrais que le phone ne soit pas clickable si il ne sonne pas
+        // mais cette facon de faire de fonctionnne pas
         
     }
 
