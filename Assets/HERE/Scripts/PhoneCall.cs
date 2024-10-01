@@ -6,25 +6,44 @@ using UnityEngine;
 public class PhoneCall : MonoBehaviour
 {
     private Animator animator;
-    public bool calling;
-    public bool callDone;
+    public bool answerCall;
+    ///public bool callDone;
+
+    private bool phoneRinging;
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (calling) 
+        Call();
+    }
+
+    private void OnMouseDown()
+    {
+        //if (phoneRinging)
+        //{
+            answerCall = !answerCall;
+        //}
+        
+    }
+
+    public void Call()
+    {
+        if (phoneRinging)
         {
-            animator.SetBool("calling",true);
-            calling = false;
+            animator.SetBool("ringing", true);
         }
-        if (callDone) 
+
+        if (answerCall)
         {
-            animator.SetBool("calling", false);
-            callDone = false;
+            animator.SetBool("answer", true);
+        }
+        if (!phoneRinging && !answerCall)
+        {
+            animator.SetBool("answer", false);
         }
     }
+
 }
