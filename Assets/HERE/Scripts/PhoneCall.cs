@@ -9,7 +9,21 @@ public class PhoneCall : MonoBehaviour
     public bool answerCall;
     ///public bool callDone;
 
-    private bool phoneRinging;
+    public bool phoneRinging;
+
+    void OnEnable()
+    {
+        Manager.call += IncomingCall;
+        Manager.endCall += EndCall;
+
+    }
+
+    void OnDisable()
+    {
+        Manager.call -= IncomingCall;
+        Manager.endCall -= EndCall;
+
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,22 +36,12 @@ public class PhoneCall : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if (phoneRinging)
-        //{
-            answerCall = !answerCall;
-        //}
-        // je voudrais que le phone ne soit pas clickable si il ne sonne pas
-        // mais cette facon de faire de fonctionnne pas
+        answerCall = !answerCall;
         
     }
 
     public void Call()
     {
-        if (phoneRinging)
-        {
-            animator.SetBool("ringing", true);
-        }
-
         if (answerCall)
         {
             animator.SetBool("answer", true);
@@ -46,6 +50,17 @@ public class PhoneCall : MonoBehaviour
         {
             animator.SetBool("answer", false);
         }
+    }
+
+    public void IncomingCall()
+    {
+        animator.SetBool("ringing", true);
+    }
+
+    public void EndCall()
+    {
+        phoneRinging = false;
+        animator.SetBool("ringing", false);
     }
 
 }
