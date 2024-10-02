@@ -8,7 +8,6 @@ public class Manager : MonoBehaviour
     public static event Action endCall;
 
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C)) // creer une condition qui lance le trigger x temps apres que le jeux ai commencer
