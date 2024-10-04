@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 
 public class Manager : MonoBehaviour
@@ -7,10 +8,21 @@ public class Manager : MonoBehaviour
     public static event Action call;
     public static event Action endCall;
 
+    private bool startCallBoss;
+    void Start()
+    {
+        StartCoroutine(MyCoroutine());
+    }
+
+    IEnumerator MyCoroutine()
+    {
+        yield return new WaitForSeconds(5);
+        startCallBoss = true;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) // creer une condition qui lance le trigger x temps apres que le jeux ai commencer
+        if (startCallBoss)
         {
             Triggercall();
         }
@@ -38,8 +50,6 @@ public class Manager : MonoBehaviour
             
         }
     }
-
-
 }
 
 
