@@ -25,10 +25,9 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed = 0.2f;
     //vitesse de frappe du text
 
-    //public Animator animator;
-    //ref a l'animation
     public CanvasGroup canvasGroup;
 
+    private bool callBeenAnswer;
     void Awake()
     {
         if (Instance == null)
@@ -42,18 +41,38 @@ public class DialogueManager : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
-        
+
+    void OnEnable()
+    {
+        Manager.startDialogue += PhoneCallBeenAnswer;
+    }
+    void OnDisable()
+    {
+        Manager.startDialogue -= PhoneCallBeenAnswer;
+    }
+
+    public void PhoneCallBeenAnswer(bool okay)
+    {
+        callBeenAnswer = okay;
+        Debug.Log($"bool de l'event dans DialogueManager : {okay}");
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
-        isDialogueActive = true;
-
-        lines.Clear();
-
-        foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
+        if (callBeenAnswer)
         {
-            lines.Enqueue(dialogueLine);
+            // Ici je ne rentre pas dans le if
+            Debug.Log("je rentre dans le if");
+            isDialogueActive = true;
+
+            lines.Clear();
+
+            foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
+            {
+                lines.Enqueue(dialogueLine);
+            }
+            DisplayNextDialogueLine();
         }
-        DisplayNextDialogueLine();
     }
 
     public void DisplayNextDialogueLine()

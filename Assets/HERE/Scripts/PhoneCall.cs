@@ -5,63 +5,79 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PhoneCall : MonoBehaviour
 {
+
     private Animator animator;
-    public bool answerCall;
-    ///public bool callDone;
 
-    public bool phoneRinging;
+    public bool phoneAnswer;
 
-    void OnEnable()
-    {
-        Manager.makeThePhoneRing += IncomingCall;
-        Manager.callHasBeenAnswerStopTheRing += CallHasBeenAnswer;
+    private bool isRinging = false;
+    private bool isAnswering = false;
+    private bool isHangingUp = false;
 
-    }
-
-    void OnDisable()
-    {
-        Manager.makeThePhoneRing -= IncomingCall;
-        Manager.callHasBeenAnswerStopTheRing -= CallHasBeenAnswer;
-
-    }
     void Start()
     {
         animator = GetComponent<Animator>();
     }
+    void OnEnable()
+    {
+        Manager.makeThePhoneRing += StartRinging;
+    }
 
+    void OnDisable()
+    {
+        Manager.makeThePhoneRing -= StartRinging;
+    }
     void Update()
     {
-        Call();
-    }
 
-    private void OnMouseDown()
-    {
-        answerCall = !answerCall;
-        
-    }
-
-    public void Call()
-    {
-        if (answerCall)
+        // Exemple : répondre au téléphone avec la touche "A"
+        if (Input.GetKeyDown(KeyCode.A) && isRinging)
         {
-            animator.SetBool("answer", true);
+            AnswerPhone();
         }
-        if (!phoneRinging && !answerCall)
+
+        // Exemple : raccrocher le téléphone avec la touche "H"
+        if (Input.GetKeyDown(KeyCode.H) && isAnswering)
         {
-            animator.SetBool("answer", false);
+            HangUpPhone();
         }
     }
-
-    public void IncomingCall()
+    public void StartRinging(bool ringing)
     {
-        animator.SetBool("ringing", true);
+        // Le téléphone commence à sonner
+        isRinging = ringing;
+        isAnswering = false;
+        isHangingUp = false;
+
+        animator.SetBool("isRinging", ringing);
+        animator.SetBool("isAnswering", false);
+        animator.SetBool("isHangingUp", false);
     }
 
-    public void CallHasBeenAnswer()
+    public void AnswerPhone()
     {
-        phoneRinging = false;
-        animator.SetBool("ringing", false);
-        Debug.Log("EVENT FONCTIONNE");
+        // pour le manager, pour lui faire savoir que le player a répondu au téléphone
+        phoneAnswer = true;
+        // L'utilisateur répond au téléphone
+        isRinging = false;
+        isAnswering = true;
+        isHangingUp = false;
+
+        animator.SetBool("isRinging", false);
+        animator.SetBool("isAnswering", true);
+        animator.SetBool("isHangingUp", false);
+    }
+
+    public void HangUpPhone()
+    {
+        // L'utilisateur raccroche le téléphone
+        isRinging = false;
+        isAnswering = false;
+        isHangingUp = true;
+
+        animator.SetBool("isRinging", false);
+        animator.SetBool("isAnswering", false);
+        animator.SetBool("isHangingUp", true);
     }
 
 }
