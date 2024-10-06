@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     public CanvasGroup canvasGroup;
 
-    private bool callBeenAnswer;
+    //private bool callBeenAnswer;
     void Awake()
     {
         if (Instance == null)
@@ -41,28 +41,8 @@ public class DialogueManager : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
-
-    void OnEnable()
-    {
-        Manager.startDialogue += PhoneCallBeenAnswer;
-    }
-    void OnDisable()
-    {
-        Manager.startDialogue -= PhoneCallBeenAnswer;
-    }
-
-    public void PhoneCallBeenAnswer(bool okay)
-    {
-        callBeenAnswer = okay;
-        Debug.Log($"bool de l'event dans DialogueManager : {okay}");
-    }
-
     public void StartDialogue(Dialogue dialogue)
     {
-        if (callBeenAnswer)
-        {
-            // Ici je ne rentre pas dans le if
-            Debug.Log("je rentre dans le if");
             isDialogueActive = true;
 
             lines.Clear();
@@ -72,11 +52,12 @@ public class DialogueManager : MonoBehaviour
                 lines.Enqueue(dialogueLine);
             }
             DisplayNextDialogueLine();
-        }
     }
 
     public void DisplayNextDialogueLine()
     {
+        Debug.Log("Rentre dans DisplayNext.....");
+
         if (lines.Count == 0)
         {
             EndDialogue();
@@ -94,9 +75,12 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
+        Debug.Log("Rentre dans IEnum");
+
         dialogueArea.text = "";
         foreach (Char letter in dialogueLine.line.ToCharArray())
         {
+            Debug.Log($"lettre : {letter}");
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
@@ -108,7 +92,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (!isDialogueActive) 
+        if (!isDialogueActive)
         {
             canvasGroup.alpha = 0f;
             canvasGroup.interactable = false;
@@ -119,7 +103,7 @@ public class DialogueManager : MonoBehaviour
             canvasGroup.alpha = 1f;
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
-        }   
+        }
     }
 }
 

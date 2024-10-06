@@ -1235,6 +1235,64 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 21.162594, y: 11.964232, z: 4.0020766}
   m_Center: {x: 0, y: 4.070494, z: -1.0010383}
+--- !u!1 &360414185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360414186}
+  - component: {fileID: 360414187}
+  m_Layer: 0
+  m_Name: Boss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360414186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360414185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2129421241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360414187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360414185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2eb8d8737f2c24189c5178aef41167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: BOSS
+        icon: {fileID: 0}
+      line: Hello
+    - character:
+        name: BOSS
+        icon: {fileID: 0}
+      line: is me , your boss
+    - character:
+        name: BOSS
+        icon: {fileID: 0}
+      line: blablabla
 --- !u!4 &379786834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3179971586780141778, guid: ca8ef71977f4ff54ca7ef29930cb662a,
@@ -4289,10 +4347,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1575922736}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d01777c13f30b1440bc08292aab6d301,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1575922738}
   m_SourcePrefab: {fileID: 100100000, guid: d01777c13f30b1440bc08292aab6d301, type: 3}
 --- !u!1 &1575922731 stripped
 GameObject:
@@ -4355,32 +4409,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8762076, y: 0.49725994, z: 2.0026426}
   m_Center: {x: -0.019343853, y: 0.25137, z: -0.07772529}
---- !u!114 &1575922738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575922731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2eb8d8737f2c24189c5178aef41167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: Boss
-        icon: {fileID: 0}
-      line: 'Hey, is your boss. Gerald......
-
-        Don''t forget......
-
-        And.....'
-    - character:
-        name: Boss
-        icon: {fileID: 0}
-      line: See you....
 --- !u!1001 &1605899177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6583,8 +6611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2297, y: 31.7014}
-  m_SizeDelta: {x: 1104.4592, y: 124.5972}
+  m_AnchoredPosition: {x: 0.2297, y: 13.5904}
+  m_SizeDelta: {x: 1104.4592, y: 160.8192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997669518
 MonoBehaviour:
@@ -7155,6 +7183,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8be1909aef0f60848b70f23796f458b9, type: 3}
+--- !u!1 &2129421240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129421241}
+  m_Layer: 0
+  m_Name: ____NPC_____
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2129421241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129421240}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 360414186}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2130127666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7402,3 +7462,4 @@ SceneRoots:
   - {fileID: 419540849}
   - {fileID: 1135234904}
   - {fileID: 1785516008}
+  - {fileID: 2129421241}

@@ -26,17 +26,34 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    private bool callBeenAnswer = false;
 
-    public void TriggerDialogue()
+    void OnEnable()
     {
-        DialogueManager.Instance.StartDialogue(dialogue);
+        Manager.startDialogue += PhoneCallBeenAnswer;
+    }
+    void OnDisable()
+    {
+        Manager.startDialogue -= PhoneCallBeenAnswer;
+    }
+    public void PhoneCallBeenAnswer(bool okay)
+    {
+        callBeenAnswer = okay;
+        //TriggerDialogue();
+        Debug.Log($"bool de l'event dans DialogueTrigger : {okay}");
+
     }
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.V))
-        //{
-            //TriggerDialogue();
-        //}
+        if (callBeenAnswer)
+        {
+            TriggerDialogue();
+        }
+    }
+    public void TriggerDialogue()
+    {
+        Debug.Log("rentre dans le TriggerDialogue}");
+        DialogueManager.Instance.StartDialogue(dialogue);
     }
 }

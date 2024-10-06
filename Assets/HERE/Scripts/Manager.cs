@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
 {
     public static event Action <bool> makeThePhoneRing;
     public static event Action<bool> startDialogue;
+    // changer en event action simple
     public static event Action callHasBeenAnswerStopTheRing;
 
     private GameObject other;
@@ -24,7 +25,7 @@ public class Manager : MonoBehaviour
 
     IEnumerator MyCoroutine()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         startCallBoss = true;
     }
 
