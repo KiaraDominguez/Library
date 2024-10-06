@@ -6,21 +6,12 @@ public class SpacebarButtonController : MonoBehaviour
     public Button myButton;
     public DialogueManager dialogueManager;
 
-    void Start()
-    {
-        // Optionnel : Assigner une action par défaut au bouton (ou via l'inspecteur)
-        //if (myButton != null)
-        //{
-            //myButton.onClick.AddListener(OnButtonClicked);
-        //}
-    }
-
     void Update()
     {
         if (dialogueManager.isDialogueActive)
         {
             Debug.Log("Ok");
-    // Détecter si la barre d'espace est pressée
+            // Détecter si la barre d'espace est pressée
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Vérifier si le bouton est assigné et l'activer

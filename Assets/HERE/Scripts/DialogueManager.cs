@@ -85,7 +85,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
-        //animator.Play("hide");
     }
 
     void Update()

@@ -13,15 +13,15 @@ public class PhoneCall : MonoBehaviour
 
     void OnEnable()
     {
-        Manager.call += IncomingCall;
-        Manager.endCall += EndCall;
+        Manager.makeThePhoneRing += IncomingCall;
+        Manager.callHasBeenAnswerStopTheRing += CallHasBeenAnswer;
 
     }
 
     void OnDisable()
     {
-        Manager.call -= IncomingCall;
-        Manager.endCall -= EndCall;
+        Manager.makeThePhoneRing -= IncomingCall;
+        Manager.callHasBeenAnswerStopTheRing -= CallHasBeenAnswer;
 
     }
     void Start()
@@ -57,10 +57,11 @@ public class PhoneCall : MonoBehaviour
         animator.SetBool("ringing", true);
     }
 
-    public void EndCall()
+    public void CallHasBeenAnswer()
     {
         phoneRinging = false;
         animator.SetBool("ringing", false);
+        Debug.Log("EVENT FONCTIONNE");
     }
 
 }

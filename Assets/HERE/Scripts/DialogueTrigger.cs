@@ -34,9 +34,9 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            TriggerDialogue();
-        }
+        //if (Input.GetKeyDown(KeyCode.V))
+        //{
+            //TriggerDialogue();
+        //}
     }
 }

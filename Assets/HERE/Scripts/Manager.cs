@@ -5,8 +5,8 @@ using System.Collections;
 
 public class Manager : MonoBehaviour
 {
-    public static event Action call;
-    public static event Action endCall;
+    public static event Action makeThePhoneRing;
+    public static event Action callHasBeenAnswerStopTheRing;
 
     private bool startCallBoss;
     void Start()
@@ -24,29 +24,29 @@ public class Manager : MonoBehaviour
     {
         if (startCallBoss)
         {
-            Triggercall();
+            TriggerPhoneRinging();
         }
-        if (Input.GetKeyDown(KeyCode.V)) // creer un script pour les dialogues npc quand le bouton de fin est presser par le player, ce script informera le manager qui lui informera phoneCall de lancer la fonction EndCall
+        if (Input.GetKeyDown(KeyCode.C)) // creer un script pour les dialogues npc quand le bouton de fin est presser par le player, ce script informera le manager qui lui informera phoneCall de lancer la fonction EndCall
         {
-            TriggerEndCall();
+            TriggerStopTheRing();
         }
     }
 
-    private void Triggercall()
+    private void TriggerPhoneRinging()
     {
-        if (call != null)
+        if (makeThePhoneRing != null)
         {
             Debug.Log("Manager a declencher un appel");
-            call.Invoke(); 
+            makeThePhoneRing.Invoke(); 
         }
     }
-    private void TriggerEndCall()
+    private void TriggerStopTheRing()
     {
         
-        if (endCall != null)
+        if (callHasBeenAnswerStopTheRing != null)
         {
             Debug.Log("Manager a finit un appel");
-            endCall.Invoke();
+            callHasBeenAnswerStopTheRing.Invoke();
             
         }
     }
