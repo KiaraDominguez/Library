@@ -21,11 +21,14 @@ public class PhoneCall : MonoBehaviour
     void OnEnable()
     {
         Manager.makeThePhoneRing += StartRinging;
+        Manager.callHasBeenAnswerStopTheRing += HangUpPhone;
     }
 
     void OnDisable()
     {
         Manager.makeThePhoneRing -= StartRinging;
+        Manager.callHasBeenAnswerStopTheRing -= HangUpPhone;
+
     }
     void Update()
     {
@@ -34,12 +37,6 @@ public class PhoneCall : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && isRinging)
         {
             AnswerPhone();
-        }
-
-        // Exemple : raccrocher le téléphone avec la touche "H"
-        if (Input.GetKeyDown(KeyCode.H) && isAnswering)
-        {
-            HangUpPhone();
         }
     }
     public void StartRinging(bool ringing)

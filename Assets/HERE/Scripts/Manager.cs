@@ -6,7 +6,7 @@ using System.Collections;
 public class Manager : MonoBehaviour
 {
     public static event Action <bool> makeThePhoneRing;
-    public static event Action<bool> startDialogue;
+    public static event Action startDialogue;
     // changer en event action simple
     public static event Action callHasBeenAnswerStopTheRing;
 
@@ -15,18 +15,10 @@ public class Manager : MonoBehaviour
     private bool phoneAnswer;
 
     private bool startCallBoss;
-
-    ////// avec timer///////
-    //private float timer = 0f;
-    //private float waitTime = 5f;
-    //private bool isWaiting = false;
     void Start()
     {
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
-
-        ////// avec timer///////
-        //isWaiting = true;
 
         StartCoroutine(MyCoroutine());
     }
@@ -39,16 +31,6 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
-        ////// avec timer///////
-        //if (isWaiting)
-        //{
-        //    timer += Time.deltaTime;
-        //    if (timer >= waitTime)
-        //    {
-        //        startCallBoss = true;
-        //        isWaiting = false;  // Arrêter le timer
-        //    }
-        //}
         phoneAnswer = phone.phoneAnswer;
 
         if (startCallBoss)
@@ -58,20 +40,20 @@ public class Manager : MonoBehaviour
         if (phoneAnswer)
         {
             Debug.Log("phoneAnswer");
-            TriggerStartDialogue(true);
+            TriggerStartDialogue();
         }
-        if (Input.GetKeyDown(KeyCode.C) ) // creer un script pour les dialogues npc quand le bouton de fin est presser par le player, ce script informera le manager qui lui informera phoneCall de lancer la fonction EndCall
+        if (DialogueManager.Instance.canIHungUp) 
         {
             TriggerStopTheRing();
         }
     }
 
-    private void TriggerStartDialogue(bool dialogue)
+    private void TriggerStartDialogue()
     {
         if (startDialogue != null)
         {
             Debug.Log("DialogueManager a commencer un dialogue");
-            startDialogue.Invoke(dialogue);
+            startDialogue.Invoke();
         }
     }
 

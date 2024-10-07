@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     //private bool callBeenAnswer;
+    public bool canIHungUp;
     void Awake()
     {
         if (Instance == null)
@@ -43,7 +44,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
-            isDialogueActive = true;
+        isDialogueActive = true;
 
             lines.Clear();
 
@@ -88,6 +89,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
+        canIHungUp = true;
     }
 
     void Update()

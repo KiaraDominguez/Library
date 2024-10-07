@@ -26,34 +26,39 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    private bool callBeenAnswer = false;
 
-    void OnEnable()
-    {
-        Manager.startDialogue += PhoneCallBeenAnswer;
-    }
-    void OnDisable()
-    {
-        Manager.startDialogue -= PhoneCallBeenAnswer;
-    }
-    public void PhoneCallBeenAnswer(bool okay)
-    {
-        callBeenAnswer = okay;
-        //TriggerDialogue();
-        Debug.Log($"bool de l'event dans DialogueTrigger : {okay}");
+    // Code qui fait bugger le DialogueManager parce qu'il utilise un enum//
+    //private bool callBeenAnswer = false;
 
-    }
+    //void OnEnable()
+    //{
+    //    Manager.startDialogue += PhoneCallBeenAnswer;
+    //}
+    //void OnDisable()
+    //{
+    //    Manager.startDialogue -= PhoneCallBeenAnswer;
+    //}
+    //public void PhoneCallBeenAnswer()
+    //{
+    //    //callBeenAnswer = true;
+    //    TriggerDialogue();
+    //    Debug.Log($"bool de l'event dans DialogueTrigger : {true}");
 
+    //}
+
+    //void Update()
+    //{
+    //    if (callBeenAnswer)
+    //    {
+    //        TriggerDialogue();
+    //    }
+    //}
     void Update()
     {
-        if (callBeenAnswer)
-        {
-            TriggerDialogue();
-        }
+        if(Input.GetKeyUp(KeyCode.V)) TriggerDialogue();
     }
     public void TriggerDialogue()
     {
-        Debug.Log("rentre dans le TriggerDialogue}");
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 }
