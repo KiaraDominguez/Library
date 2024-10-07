@@ -15,11 +15,19 @@ public class Manager : MonoBehaviour
     private bool phoneAnswer;
 
     private bool startCallBoss;
+
+    ////// avec timer///////
+    //private float timer = 0f;
+    //private float waitTime = 5f;
+    //private bool isWaiting = false;
     void Start()
     {
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
-        
+
+        ////// avec timer///////
+        //isWaiting = true;
+
         StartCoroutine(MyCoroutine());
     }
 
@@ -31,6 +39,16 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
+        ////// avec timer///////
+        //if (isWaiting)
+        //{
+        //    timer += Time.deltaTime;
+        //    if (timer >= waitTime)
+        //    {
+        //        startCallBoss = true;
+        //        isWaiting = false;  // Arrêter le timer
+        //    }
+        //}
         phoneAnswer = phone.phoneAnswer;
 
         if (startCallBoss)
