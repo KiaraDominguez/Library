@@ -6,34 +6,36 @@ using UnityEditor.PackageManager;
 
 public class Manager : MonoBehaviour
 {
+    //CALL BOSS//
     public static event Action <bool> makeThePhoneRing;
     public static event Action startDialogue;
-
     public static event Action callHasBeenAnswerStopTheRing;
-
-    public static event Action litRuleBook;
-
+    private bool startCallBoss;
     private GameObject other;
     private PhoneCall phone;
     private bool phoneAnswer;
 
-    private bool startCallBoss;
+    //SURBRILLANCE DU RULEBOOK//
+    public static event Action litRuleBook;
+    
     void Start()
     {
+        //CALL BOSS//
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
-
         StartCoroutine(MyCoroutine());
     }
 
     IEnumerator MyCoroutine()
     {
+        //CALL BOSS//
         yield return new WaitForSeconds(1);
         startCallBoss = true;
     }
 
     void Update()
     {
+        //CALL BOSS//
         phoneAnswer = phone.phoneAnswer;
 
         if (startCallBoss)
@@ -52,24 +54,25 @@ public class Manager : MonoBehaviour
         {
             TriggerStopTheRing();
             DialogueManager.Instance.canIHungUp = false;
+            //SURBRILLANCE DU RULEBOOK//
             TriggerTheRuleBook();
         }
     }
 
+    //SURBRILLANCE DU RULEBOOK//
     private void TriggerTheRuleBook()
     {
         if (litRuleBook != null)
         {
-            Debug.Log("Manager a declencher un appel");
             litRuleBook.Invoke();
         }
     }
 
+    //CALL BOSS//
     private void TriggerStartDialogue()
     {
         if (startDialogue != null)
         {
-            Debug.Log("DialogueManager a commencer un dialogue");
             startDialogue.Invoke();
         }
     }
@@ -78,7 +81,6 @@ public class Manager : MonoBehaviour
     {
         if (makeThePhoneRing != null)
         {
-            Debug.Log("Manager a declencher un appel");
             makeThePhoneRing.Invoke(ringing); 
         }
     }
@@ -87,10 +89,7 @@ public class Manager : MonoBehaviour
         
         if (callHasBeenAnswerStopTheRing != null)
         {
-            Debug.Log("Manager a finit un appel");
             callHasBeenAnswerStopTheRing.Invoke();
-            
-
         }
     }
 }

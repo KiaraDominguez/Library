@@ -37,7 +37,6 @@ public class Rulebook : MonoBehaviour
     }
     public void StopTheLit()
     {
-        Debug.Log("je rentrre dans Stop the lit");
 
         playerPickedIt = true;
         animator.SetBool("playerPickIt", playerPickedIt);

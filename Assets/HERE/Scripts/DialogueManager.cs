@@ -57,8 +57,6 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextDialogueLine()
     {
-        Debug.Log("Rentre dans DisplayNext.....");
-
         if (lines.Count == 0)
         {
             EndDialogue();
@@ -76,12 +74,9 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
-        Debug.Log("Rentre dans IEnum");
-
         dialogueArea.text = "";
         foreach (Char letter in dialogueLine.line.ToCharArray())
         {
-            Debug.Log($"lettre : {letter}");
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }

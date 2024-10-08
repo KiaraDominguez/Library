@@ -8,11 +8,11 @@ public class PhoneCall : MonoBehaviour
 
     private Animator animator;
 
-    public bool phoneAnswer;
-
     private bool isRinging = false;
     private bool isAnswering = false;
 
+    //BOOL POUR LE MANAGER//
+    public bool phoneAnswer;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -51,7 +51,7 @@ public class PhoneCall : MonoBehaviour
 
     public void AnswerPhone()
     {
-        // pour le manager, pour lui faire savoir que le player a répondu au téléphone
+        //BOOL POUR LE MANAGER// (pour lui faire savoir que le player a répondu au téléphone)
         phoneAnswer = true;
         // L'utilisateur répond au téléphone
         isRinging = false;
@@ -63,7 +63,7 @@ public class PhoneCall : MonoBehaviour
 
     public void HangUpPhone()
     {
-        // L'utilisateur raccroche le téléphone
+        // Le manager raccroche le téléphone
         isRinging = false;
         isAnswering = false;
 

@@ -26,10 +26,6 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-
-    // Code qui fait bugger le DialogueManager parce qu'il utilise un enum//
-    private bool callBeenAnswer = false;
-
     void OnEnable()
     {
         Manager.startDialogue += PhoneCallBeenAnswer;
@@ -40,23 +36,9 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void PhoneCallBeenAnswer()
     {
-        //callBeenAnswer = true;
         TriggerDialogue();
-        Debug.Log($"bool de l'event dans DialogueTrigger : {true}");
 
     }
-
-    void Update()
-    {
-        if (callBeenAnswer)
-        {
-            TriggerDialogue();
-        }
-    }
-    //void Update()
-    //{
-    //    if(Input.GetKeyUp(KeyCode.V)) TriggerDialogue();
-    //}
     public void TriggerDialogue()
     {
         DialogueManager.Instance.StartDialogue(dialogue);
