@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEditor.PackageManager;
 
 
 public class Manager : MonoBehaviour
 {
     public static event Action <bool> makeThePhoneRing;
     public static event Action startDialogue;
-    // changer en event action simple
+
     public static event Action callHasBeenAnswerStopTheRing;
+
+    public static event Action litRuleBook;
 
     private GameObject other;
     private PhoneCall phone;
@@ -45,6 +48,16 @@ public class Manager : MonoBehaviour
         if (DialogueManager.Instance.canIHungUp) 
         {
             TriggerStopTheRing();
+            
+        }
+    }
+
+    private void TriggerTheRuleBook()
+    {
+        if (litRuleBook != null)
+        {
+            Debug.Log("Manager a declencher un appel");
+            litRuleBook.Invoke();
         }
     }
 
@@ -72,7 +85,8 @@ public class Manager : MonoBehaviour
         {
             Debug.Log("Manager a finit un appel");
             callHasBeenAnswerStopTheRing.Invoke();
-            
+            TriggerTheRuleBook();
+
         }
     }
 }
