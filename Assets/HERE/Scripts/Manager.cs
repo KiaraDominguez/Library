@@ -44,11 +44,14 @@ public class Manager : MonoBehaviour
         {
             Debug.Log("phoneAnswer");
             TriggerStartDialogue();
+            phone.phoneAnswer = false;
+
         }
         if (DialogueManager.Instance.canIHungUp) 
         {
             TriggerStopTheRing();
-            
+            DialogueManager.Instance.canIHungUp = false;
+            TriggerTheRuleBook();
         }
     }
 
@@ -85,7 +88,7 @@ public class Manager : MonoBehaviour
         {
             Debug.Log("Manager a finit un appel");
             callHasBeenAnswerStopTheRing.Invoke();
-            TriggerTheRuleBook();
+            
 
         }
     }

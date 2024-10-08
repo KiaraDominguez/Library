@@ -6,6 +6,7 @@ public class Rulebook : MonoBehaviour
 
     private bool isLit;
     private bool playerPickedIt;
+    private bool playerHasPickedUp;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,26 +24,30 @@ public class Rulebook : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A) && isLit) 
+        if(Input.GetKeyDown(KeyCode.V) && isLit) 
         {
             StopTheLit();
+        }
+        if(playerHasPickedUp)
+        {
+            animator.SetBool("playerPickIt", false);
+            animator.SetBool("lit", false);
         }
     }
 
     public void MakeTheBookLit()
     {
         isLit = true;
-        playerPickedIt = false;
-
         animator.SetBool("lit", isLit);
-        animator.SetBool("playerPickIt", playerPickedIt);
     }
     public void StopTheLit()
     {
-        isLit = true;
-        playerPickedIt = true;
+        Debug.Log("je rentrre dans Stop the lit");
 
-        animator.SetBool("lit", isLit);
+        playerPickedIt = true;
         animator.SetBool("playerPickIt", playerPickedIt);
+
+        playerHasPickedUp = true;
+
     }
 }
