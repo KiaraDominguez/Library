@@ -38,13 +38,14 @@ public class Manager : MonoBehaviour
 
         if (startCallBoss)
         {
-            TriggerPhoneRinging(true);
+            TriggerPhoneRinging(true);   
         }
         if (phoneAnswer)
         {
             Debug.Log("phoneAnswer");
             TriggerStartDialogue();
             phone.phoneAnswer = false;
+            startCallBoss = false;
 
         }
         if (DialogueManager.Instance.canIHungUp) 
