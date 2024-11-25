@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using UnityEditor.PackageManager;
+using TMPro;
 
 
 public class Manager : MonoBehaviour
@@ -14,6 +15,8 @@ public class Manager : MonoBehaviour
     private GameObject other;
     private PhoneCall phone;
     private bool phoneAnswer;
+    // pour le texte
+    public TextMeshProUGUI textPhone;
 
     //SURBRILLANCE DU RULEBOOK//
     public static event Action litRuleBook;
@@ -24,6 +27,7 @@ public class Manager : MonoBehaviour
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
         StartCoroutine(MyCoroutine());
+        textPhone.color = new Color(textPhone.color.r, textPhone.color.g, textPhone.color.b, 0);
     }
 
     IEnumerator MyCoroutine()
@@ -40,7 +44,8 @@ public class Manager : MonoBehaviour
 
         if (startCallBoss)
         {
-            TriggerPhoneRinging(true);   
+            TriggerPhoneRinging(true);
+            textPhone.color = new Color(textPhone.color.r, textPhone.color.g, textPhone.color.b, 1);
         }
         if (phoneAnswer)
         {
@@ -48,6 +53,7 @@ public class Manager : MonoBehaviour
             TriggerStartDialogue();
             phone.phoneAnswer = false;
             startCallBoss = false;
+            textPhone.color = new Color(textPhone.color.r, textPhone.color.g, textPhone.color.b, 0);
 
         }
         if (DialogueManager.Instance.canIHungUp) 

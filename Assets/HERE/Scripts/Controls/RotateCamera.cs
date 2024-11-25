@@ -27,16 +27,16 @@ public class RotateCamera : MonoBehaviour
 
         Cursor.visible = true;
 
-        // Lancer le Raycast depuis le centre de la caméra
-        Ray ray = new Ray(transform.position, transform.forward); // Raycast depuis la caméra
+        //// Lancer le Raycast depuis le centre de la caméra
+        //Ray ray = new Ray(transform.position, transform.forward); // Raycast depuis la caméra
 
-        Debug.DrawRay(transform.position, transform.forward * rayDistance, rayColor);
+        //Debug.DrawRay(transform.position, transform.forward * rayDistance, rayColor);
 
-        RaycastHit hit;
+        //RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, rayDistance))
-        {
-            Debug.Log("Object hit: " + hit.collider.name);
-        }
+        //if (Physics.Raycast(ray, out hit, rayDistance))
+        //{
+        //    Debug.Log("Object hit: " + hit.collider.name);
+        //}
     }
 }

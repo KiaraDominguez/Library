@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
+using UnityEngine.UI;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -13,9 +14,11 @@ public class PhoneCall : MonoBehaviour
 
     //BOOL POUR LE MANAGER//
     public bool phoneAnswer;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
     }
     void OnEnable()
     {
@@ -54,6 +57,7 @@ public class PhoneCall : MonoBehaviour
         //BOOL POUR LE MANAGER// (pour lui faire savoir que le player a répondu au téléphone)
         phoneAnswer = true;
         // L'utilisateur répond au téléphone
+
         isRinging = false;
         isAnswering = true;
         animator.SetBool("isRinging", false);
