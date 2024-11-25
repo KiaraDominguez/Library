@@ -6,6 +6,9 @@ public class Rulebook : MonoBehaviour
 
     private bool isLit;
     private bool playerPickedIt;
+
+    public CanvasGroup canvasGroup;
+    private bool rulebookIsOpen;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,10 +26,27 @@ public class Rulebook : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V) && isLit) 
+        if(Input.GetKeyDown(KeyCode.B) && isLit) 
         {
             StopTheLit();
             animator.SetBool("lit", false);
+            rulebookIsOpen = true;
+        }
+        if (!rulebookIsOpen)
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+        }
+        else
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && rulebookIsOpen)
+        {
+            rulebookIsOpen=false;
         }
     }
 
