@@ -10,7 +10,6 @@ public class SpacebarButtonController : MonoBehaviour
     {
         if (dialogueManager.isDialogueActive)
         {
-            Debug.Log("Ok");
             // Détecter si la barre d'espace est pressée
             if (Input.GetKeyDown(KeyCode.Space))
             {

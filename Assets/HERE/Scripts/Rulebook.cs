@@ -9,6 +9,8 @@ public class Rulebook : MonoBehaviour
 
     public CanvasGroup canvasGroup;
     private bool rulebookIsOpen;
+    public bool rulebookHasBeenRaed;
+    private int count = 0;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -26,7 +28,7 @@ public class Rulebook : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B) && isLit) 
+        if(Input.GetKeyDown(KeyCode.R) && isLit) 
         {
             StopTheLit();
             animator.SetBool("lit", false);
@@ -46,7 +48,9 @@ public class Rulebook : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && rulebookIsOpen)
         {
+            count++;
             rulebookIsOpen=false;
+            FirstTimeRead();
         }
     }
 
@@ -60,5 +64,12 @@ public class Rulebook : MonoBehaviour
 
         playerPickedIt = true;
         animator.SetBool("playerPickIt", playerPickedIt);
+    }
+    public void FirstTimeRead()
+    {
+        if(count == 1)
+        {
+            rulebookHasBeenRaed = true;
+        }
     }
 }

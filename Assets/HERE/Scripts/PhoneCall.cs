@@ -35,7 +35,7 @@ public class PhoneCall : MonoBehaviour
     void Update()
     {
 
-        //répondre au téléphone avec la touche "A"
+        //répondre au téléphone avec la touche "B"
         if (Input.GetKeyDown(KeyCode.B) && isRinging)
         {
             AnswerPhone();

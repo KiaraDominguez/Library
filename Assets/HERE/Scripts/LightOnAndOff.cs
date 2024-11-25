@@ -12,6 +12,15 @@ public class LightOnAndOff : MonoBehaviour
 
     public bool lightON;
 
+    void OnEnable()
+    {
+        Manager.firstBlackOut += TurnOffLights;
+    }
+
+    void OnDisable()
+    {
+        Manager.firstBlackOut -= TurnOffLights;
+    }
     void Update()
     {
         if (!lightON)
@@ -19,7 +28,6 @@ public class LightOnAndOff : MonoBehaviour
             fuse_Off.SetActive(false);
             fuse_On.SetActive(true);
             lux.enabled = true;
-
         }
         else
         {
@@ -31,5 +39,13 @@ public class LightOnAndOff : MonoBehaviour
     private void OnMouseDown()
     {
         lightON = !(lightON);
+    }
+    private void TurnOffLights()
+    {
+        lightON =true;
+    }
+    private void TurnOnLights()
+    {
+        lightON = false;
     }
 }

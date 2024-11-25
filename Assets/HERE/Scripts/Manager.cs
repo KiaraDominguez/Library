@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor.PackageManager;
 using TMPro;
+using System.Data;
 
 
 public class Manager : MonoBehaviour
@@ -15,19 +16,29 @@ public class Manager : MonoBehaviour
     private GameObject other;
     private PhoneCall phone;
     private bool phoneAnswer;
-    // pour le texte
-    public TextMeshProUGUI textPhone;
+
+    //RULEBOOK LU //
+    private GameObject obj;
+    private Rulebook rule;
+    private bool rulebookRead;
 
     //SURBRILLANCE DU RULEBOOK//
     public static event Action litRuleBook;
-    
+
+    // BLACK-OUT
+    public static event Action firstBlackOut;
+    private bool firstBlackOutReady;
+
     void Start()
     {
         //CALL BOSS//
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
         StartCoroutine(MyCoroutine());
-        textPhone.color = new Color(textPhone.color.r, textPhone.color.g, textPhone.color.b, 0);
+
+        //RULEBOOK LU //
+        obj = GameObject.FindWithTag("rulebook");
+        rule=obj.GetComponent<Rulebook>();
     }
 
     IEnumerator MyCoroutine()
@@ -37,6 +48,11 @@ public class Manager : MonoBehaviour
         startCallBoss = true;
     }
 
+    IEnumerator CoroutineFirstBlackOut()
+    {
+        yield return new WaitForSeconds(1);
+        firstBlackOutReady = true;
+    }
     void Update()
     {
         //CALL BOSS//
@@ -45,15 +61,12 @@ public class Manager : MonoBehaviour
         if (startCallBoss)
         {
             TriggerPhoneRinging(true);
-            textPhone.color = new Color(textPhone.color.r, textPhone.color.g, textPhone.color.b, 1);
         }
         if (phoneAnswer)
         {
-            Debug.Log("phoneAnswer");
             TriggerStartDialogue();
             phone.phoneAnswer = false;
             startCallBoss = false;
-            textPhone.color = new Color(textPhone.color.r, textPhone.color.g, textPhone.color.b, 0);
 
         }
         if (DialogueManager.Instance.canIHungUp) 
@@ -63,6 +76,14 @@ public class Manager : MonoBehaviour
             //SURBRILLANCE DU RULEBOOK//
             TriggerTheRuleBook();
         }
+        //RULEBOOK LU //
+        rulebookRead = rule.rulebookHasBeenRaed;
+        if (rulebookRead && firstBlackOutReady) 
+        {
+            rule.rulebookHasBeenRaed = false;
+            TriggerBlackOut();
+            firstBlackOutReady = false;
+        }
     }
 
     //SURBRILLANCE DU RULEBOOK//
@@ -71,6 +92,14 @@ public class Manager : MonoBehaviour
         if (litRuleBook != null)
         {
             litRuleBook.Invoke();
+        }
+    }
+    // BLACK-OUT
+    private void TriggerBlackOut()
+    {
+        if(firstBlackOut != null)
+        {
+            firstBlackOut.Invoke();
         }
     }
 
