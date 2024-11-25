@@ -39,6 +39,7 @@ public class Manager : MonoBehaviour
         //RULEBOOK LU //
         obj = GameObject.FindWithTag("rulebook");
         rule=obj.GetComponent<Rulebook>();
+        
     }
 
     IEnumerator MyCoroutine()
@@ -50,8 +51,9 @@ public class Manager : MonoBehaviour
 
     IEnumerator CoroutineFirstBlackOut()
     {
-        yield return new WaitForSeconds(1);
-        firstBlackOutReady = true;
+        yield return new WaitForSeconds(2);
+        rule.rulebookHasBeenRaed = false;
+        TriggerBlackOut();
     }
     void Update()
     {
@@ -78,11 +80,10 @@ public class Manager : MonoBehaviour
         }
         //RULEBOOK LU //
         rulebookRead = rule.rulebookHasBeenRaed;
-        if (rulebookRead && firstBlackOutReady) 
+        if (rulebookRead) 
         {
-            rule.rulebookHasBeenRaed = false;
-            TriggerBlackOut();
-            firstBlackOutReady = false;
+            StartCoroutine(CoroutineFirstBlackOut());
+            
         }
     }
 
