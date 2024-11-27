@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEditor.PackageManager;
 using TMPro;
 using System.Data;
+using JetBrains.Annotations;
 
 
 public class Manager : MonoBehaviour
@@ -16,6 +17,8 @@ public class Manager : MonoBehaviour
     private GameObject other;
     private PhoneCall phone;
     private bool phoneAnswer;
+    //txt phone
+    public Canvas canvasPhone;
 
     //RULEBOOK LU //
     private GameObject obj;
@@ -24,6 +27,8 @@ public class Manager : MonoBehaviour
 
     //SURBRILLANCE DU RULEBOOK//
     public static event Action litRuleBook;
+    //txt rulebook
+    public Canvas canvasRulebook;
 
     // BLACK-OUT
     public static event Action firstBlackOut;
@@ -35,11 +40,15 @@ public class Manager : MonoBehaviour
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
         StartCoroutine(MyCoroutine());
+        //txt phone
+        canvasPhone.gameObject.SetActive(false);
 
         //RULEBOOK LU //
         obj = GameObject.FindWithTag("rulebook");
         rule=obj.GetComponent<Rulebook>();
         
+        //txt rulebook
+        canvasRulebook.gameObject.SetActive(false);
     }
 
     IEnumerator MyCoroutine()
@@ -63,12 +72,17 @@ public class Manager : MonoBehaviour
         if (startCallBoss)
         {
             TriggerPhoneRinging(true);
+
+            canvasPhone.gameObject.SetActive(true);
+
         }
         if (phoneAnswer)
         {
             TriggerStartDialogue();
             phone.phoneAnswer = false;
             startCallBoss = false;
+
+            canvasPhone.gameObject.SetActive(false);
 
         }
         if (DialogueManager.Instance.canIHungUp) 
@@ -77,13 +91,20 @@ public class Manager : MonoBehaviour
             DialogueManager.Instance.canIHungUp = false;
             //SURBRILLANCE DU RULEBOOK//
             TriggerTheRuleBook();
+
+            canvasRulebook.gameObject.SetActive(true);
+
+
         }
         //RULEBOOK LU //
         rulebookRead = rule.rulebookHasBeenRaed;
         if (rulebookRead) 
         {
             StartCoroutine(CoroutineFirstBlackOut());
-            
+
+            canvasRulebook.gameObject.SetActive(false);
+
+
         }
     }
 
