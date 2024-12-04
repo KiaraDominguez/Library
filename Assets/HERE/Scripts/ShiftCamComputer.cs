@@ -21,5 +21,8 @@ public class ShiftCamComputer : MonoBehaviour
         mainCam.enabled = false;
         mainCam.gameObject.SetActive(false);
         computerCam.gameObject.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
