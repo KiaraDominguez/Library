@@ -7164,7 +7164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[ r ] EXIT'
+  m_text: '[ EXC ] EXIT'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc2273bc94722ef49b018075924e6db8, type: 2}
   m_sharedMaterial: {fileID: -2914979078395305219, guid: dc2273bc94722ef49b018075924e6db8,
@@ -10688,7 +10688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 330585545}
   computerCam: {fileID: 1424758280}
-  ComputerOn: 0
+  computerOn: 0
 --- !u!65 &1466302654
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10708,8 +10708,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.09700344, y: 0.14461374, z: 0.764852}
-  m_Center: {x: -1.9491938, y: -1.542264, z: -0.6302803}
+  m_Size: {x: 0.15746637, y: 0.1797688, z: 0.8376379}
+  m_Center: {x: -1.9794252, y: -1.5246865, z: -0.6291801}
 --- !u!1 &1476882822
 GameObject:
   m_ObjectHideFlags: 0

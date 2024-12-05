@@ -1,11 +1,13 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class AnnaManager : MonoBehaviour
 {
-    //cacher canava search quand la selection est faite 
+
+    public static bool exitAnna;
 
     public GameObject identificationCanva;
 
@@ -46,7 +48,13 @@ public class AnnaManager : MonoBehaviour
     }
     public void Update()
     {
-        if (startIdentication)
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+
+            ExitAnna();
+        }
+        if (startIdentication && !exitAnna)
         {
             identificationCanva.SetActive(true);
             NavigateIdentification();
@@ -132,5 +140,26 @@ public class AnnaManager : MonoBehaviour
                     Debug.Log("Option inconnue : " + select);
                     break;
             }
+    }
+
+    void ExitAnna()
+    {
+        exitAnna = true;
+
+        identificationCanva.SetActive(false);
+        searchCanva.SetActive(false);
+
+        searchByAuthor.SetActive(false);
+        searchByCode.SetActive(false);
+        searchBygenre.SetActive(false);
+        searchByTitle.SetActive(false);
+        searchByYear.SetActive(false);
+
+        usernameIF.text = string.Empty;
+        passwordIF.text = string.Empty;
+        isValid = false;
+
+        typeOfSearch.text = string.Empty;
+
     }
 }
