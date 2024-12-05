@@ -6,6 +6,8 @@ public class ShiftCamComputer : MonoBehaviour
 {
     public Camera mainCam;
     public Camera computerCam;
+
+    public bool ComputerOn;
     void Start()
     {
         computerCam.gameObject.SetActive(false);
@@ -24,5 +26,9 @@ public class ShiftCamComputer : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        ComputerOn = true;
+
+        AnnaManager.startIdentication = ComputerOn;
     }
 }
