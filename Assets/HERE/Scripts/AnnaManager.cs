@@ -24,27 +24,30 @@ public class AnnaManager : MonoBehaviour
     ///
 
     public GameObject searchCanva;
+    public GameObject search;
+    public TextMeshProUGUI instruction;
 
-    public GameObject searchByAuthor; // 1
-    public GameObject searchByCode; // 2
-    public GameObject searchBygenre; // 3
-    public GameObject searchByTitle; // 4
-    public GameObject searchByYear; // 5
 
     [SerializeField] private TMP_InputField typeOfSearch;
     [SerializeField] private Button buttonTypeOfSearch;
 
+    private bool typeIsChoosed;
+
+    [SerializeField] private TMP_InputField searchField;
+    [SerializeField] private Button buttonSearchAuthor;
+
+    private string firstAuthorName1 = "elias";
+    private string firstAuthorName2 = "varnem";
+
+    [SerializeField] TextMeshProUGUI books;
 
     void Start()
     {
         identificationCanva.SetActive(false);
         searchCanva.SetActive(false);
 
-        searchByAuthor.SetActive(false);
-        searchByCode.SetActive(false);
-        searchBygenre.SetActive(false);
-        searchByTitle.SetActive(false);
-        searchByYear.SetActive(false);
+        search.SetActive(false);
+
     }
     public void Update()
     {
@@ -54,6 +57,7 @@ public class AnnaManager : MonoBehaviour
 
             ExitAnna();
         }
+
         if (startIdentication && !exitAnna)
         {
             identificationCanva.SetActive(true);
@@ -63,6 +67,11 @@ public class AnnaManager : MonoBehaviour
         {
             searchCanva.SetActive(true);
             NavigationSelect();
+        }
+        if (typeIsChoosed)
+        {
+            searchCanva.SetActive(false);
+            NavigationSearch();
         }
     }
 
@@ -122,26 +131,72 @@ public class AnnaManager : MonoBehaviour
         switch (select)
         {
              case "author":
-                    searchByAuthor.SetActive(true);
-                    break;
+                search.SetActive(true);
+                instruction.text = "enter the author name";
+                typeIsChoosed = true;
+                buttonSearchAuthor.interactable = true;
+                break;
              case "code":
-                    searchByCode.SetActive(true);
-                    break;
+                search.SetActive(true);
+                instruction.text = "enter the code";
+                typeIsChoosed = true;
+
+                break;
              case "genre":
-                    searchBygenre.SetActive(true);
-                    break;
+                search.SetActive(true);
+                instruction.text = "enter the genre";
+
+                typeIsChoosed = true;
+
+                break;
              case "title":
-                    searchByTitle.SetActive(true);
-                    break;
+                search.SetActive(true);
+                instruction.text = "enter the title";
+
+                typeIsChoosed = true;
+
+                break;
              case "year":
-                    searchByYear.SetActive(true);
-                    break;
+                search.SetActive(true);
+                instruction.text = "enter the year of publication";
+                typeIsChoosed = true;
+
+                break;
              default:
-                    Debug.Log("Option inconnue : " + select);
-                    break;
+                 Debug.Log("Option inconnue : " + select);
+                 break;
             }
     }
 
+    public void NavigationSearch()
+    {
+
+        if (Input.GetKeyUp(KeyCode.Keypad1))
+        {
+            searchField.ActivateInputField();
+        }
+        if (Input.GetKeyUp(KeyCode.Keypad2))
+        {
+            buttonSearchAuthor.onClick.Invoke();
+
+        }
+    }
+
+    public void SearchByAuthor()
+    {
+        //instruction.text = string.Empty;
+        string name = searchField.text;
+        name.ToLower().Trim();
+
+        if(name==firstAuthorName1 || name == firstAuthorName2)
+        {
+            instruction.text = "Dr. Elias Varnem";
+            books.text = "Rituals of Invocation Through the Ages: A Comparative Study";
+            //books.text += "\nThe Forbidden Manuscripts: Studies on Texts Condemned by the Church";
+            //books.text += "\nThe Science of Seals: Cryptographic and Spiritual Studies";
+
+        }
+    }
     void ExitAnna()
     {
         exitAnna = true;
@@ -149,17 +204,14 @@ public class AnnaManager : MonoBehaviour
         identificationCanva.SetActive(false);
         searchCanva.SetActive(false);
 
-        searchByAuthor.SetActive(false);
-        searchByCode.SetActive(false);
-        searchBygenre.SetActive(false);
-        searchByTitle.SetActive(false);
-        searchByYear.SetActive(false);
+        search.SetActive(false);
 
         usernameIF.text = string.Empty;
         passwordIF.text = string.Empty;
         isValid = false;
 
         typeOfSearch.text = string.Empty;
+        typeIsChoosed = false; 
 
     }
 }
