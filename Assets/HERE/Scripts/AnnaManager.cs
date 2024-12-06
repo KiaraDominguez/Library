@@ -40,6 +40,8 @@ public class AnnaManager : MonoBehaviour
     private string firstAuthorName2 = "varnem";
 
     [SerializeField] TextMeshProUGUI books;
+    public TextMeshProUGUI instruction_2;
+
 
     void Start()
     {
@@ -134,7 +136,7 @@ public class AnnaManager : MonoBehaviour
                 search.SetActive(true);
                 instruction.text = "enter the author name";
                 typeIsChoosed = true;
-                buttonSearchAuthor.interactable = true;
+                //buttonSearchAuthor.interactable = true;
                 break;
              case "code":
                 search.SetActive(true);
@@ -184,17 +186,18 @@ public class AnnaManager : MonoBehaviour
 
     public void SearchByAuthor()
     {
-        //instruction.text = string.Empty;
         string name = searchField.text;
         name.ToLower().Trim();
 
         if(name==firstAuthorName1 || name == firstAuthorName2)
         {
             instruction.text = "Dr. Elias Varnem";
-            books.text = "Rituals of Invocation Through the Ages: A Comparative Study";
-            //books.text += "\nThe Forbidden Manuscripts: Studies on Texts Condemned by the Church";
-            //books.text += "\nThe Science of Seals: Cryptographic and Spiritual Studies";
+            books.text = ">> Rituals of Invocation Through the Ages: A Comparative Study";
+            books.text += "\n>> The Forbidden Manuscripts: Studies on Texts Condemned by the Church";
+            books.text += "\n>> The Science of Seals: Cryptographic and Spiritual Studies";
 
+            instruction_2.text = string.Empty;
+            searchField.text = string.Empty;
         }
     }
     void ExitAnna()
