@@ -12,6 +12,7 @@ public class LightOnAndOff : MonoBehaviour
 
     public bool lightON;
 
+
     void OnEnable()
     {
         Manager.firstBlackOut += TurnOffLights;
@@ -39,6 +40,7 @@ public class LightOnAndOff : MonoBehaviour
     private void OnMouseDown()
     {
         lightON = !(lightON);
+        Fix();
     }
     private void TurnOffLights()
     {
@@ -47,5 +49,10 @@ public class LightOnAndOff : MonoBehaviour
     private void TurnOnLights()
     {
         lightON = false;
+    }
+
+    public void Fix()
+    {
+        Manager.blackOutFix = true;
     }
 }

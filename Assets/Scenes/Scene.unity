@@ -2514,6 +2514,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
+  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2670,6 +2671,22 @@ MonoBehaviour:
   xpos: 0
   ypos: 4
   zpos: 0.3
+--- !u!114 &330585550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63535acadf4905940822cfb090ddf57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 5
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &353493895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5237,6 +5254,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715830901}
   m_CullTransparentMesh: 1
+--- !u!1 &718442539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718442540}
+  - component: {fileID: 718442541}
+  m_Layer: 0
+  m_Name: FirstBook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &718442540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718442539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2129421241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718442541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718442539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2eb8d8737f2c24189c5178aef41167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: first book
+        icon: {fileID: 0}
+      line: Hello
+    - character:
+        name: first book
+        icon: {fileID: 0}
+      line: Elias
 --- !u!1 &733484592
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,8 +5972,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c61daa28d88459498e4abdb132c0237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 360414185}
+  firstBook: {fileID: 718442539}
   canvasPhone: {fileID: 655400529}
   canvasRulebook: {fileID: 1363812151}
+  firstBookLocationUnlock: 0
 --- !u!4 &785953786
 Transform:
   m_ObjectHideFlags: 0
@@ -7982,7 +8056,7 @@ GameObject:
   - component: {fileID: 1135234902}
   - component: {fileID: 1135234901}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: DialgueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14758,6 +14832,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856983303}
   m_CullTransparentMesh: 1
+--- !u!1 &1857683797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2046793866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1857683801
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857683797}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84f9b54a0c0673547b1dc720c380022c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1857758098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7293664052678535575, guid: 67e46198e00f8474da885b3b58e93ce6,
@@ -16932,6 +17033,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1060057983}
     m_Modifications:
+    - target: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      propertyPath: m_Name
+      value: firstBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      propertyPath: m_TagString
+      value: firstBook
+      objectReference: {fileID: 0}
     - target: {fileID: 4021711124525574523, guid: 18862654625b6184791614d21c04195f,
         type: 3}
       propertyPath: m_Name
@@ -16990,7 +17101,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857683801}
   m_SourcePrefab: {fileID: 100100000, guid: 18862654625b6184791614d21c04195f, type: 3}
 --- !u!1001 &2047325432
 PrefabInstance:
@@ -17860,6 +17975,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 360414186}
+  - {fileID: 718442540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2130127666
@@ -18248,7 +18364,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85.79
+      value: 13.846138
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}

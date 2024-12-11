@@ -8,6 +8,7 @@ TagManager:
   - closeDoor
   - phone
   - rulebook
+  - firstBook
   layers:
   - Default
   - TransparentFX

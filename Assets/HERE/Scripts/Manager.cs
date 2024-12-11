@@ -1,14 +1,16 @@
 using System;
 using UnityEngine;
 using System.Collections;
-using UnityEditor.PackageManager;
-using TMPro;
-using System.Data;
-using JetBrains.Annotations;
+
 
 
 public class Manager : MonoBehaviour
 {
+    //NPC
+    [SerializeField] GameObject boss;
+    [SerializeField] GameObject firstBook;
+
+
     //CALL BOSS//
     public static event Action <bool> makeThePhoneRing;
     public static event Action startDialogue;
@@ -33,6 +35,11 @@ public class Manager : MonoBehaviour
     // BLACK-OUT
     public static event Action firstBlackOut;
     private bool firstBlackOutReady;
+    public static bool blackOutFix;
+
+    // FIRST BOOK
+
+    [SerializeField] bool firstBookLocationUnlock;
 
     void Start()
     {
@@ -49,6 +56,9 @@ public class Manager : MonoBehaviour
         
         //txt rulebook
         canvasRulebook.gameObject.SetActive(false);
+
+        // FIRST BOOK
+        firstBookLocationUnlock = AnnaManager.firstBookOKAY;
     }
 
     IEnumerator MyCoroutine()
@@ -89,12 +99,14 @@ public class Manager : MonoBehaviour
         {
             TriggerStopTheRing();
             DialogueManager.Instance.canIHungUp = false;
-            //SURBRILLANCE DU RULEBOOK//
-            TriggerTheRuleBook();
 
-            canvasRulebook.gameObject.SetActive(true);
-
-
+            if (!blackOutFix) 
+            {
+                //SURBRILLANCE DU RULEBOOK//
+                TriggerTheRuleBook();
+                canvasRulebook.gameObject.SetActive(true);
+            }
+            
         }
         //RULEBOOK LU //
         rulebookRead = rule.rulebookHasBeenRaed;
@@ -104,8 +116,13 @@ public class Manager : MonoBehaviour
 
             canvasRulebook.gameObject.SetActive(false);
 
-
         }
+        if (blackOutFix)
+        {
+            boss.SetActive(false);
+            TriggerPhoneRinging(true);
+        }
+
     }
 
     //SURBRILLANCE DU RULEBOOK//
@@ -149,6 +166,8 @@ public class Manager : MonoBehaviour
             callHasBeenAnswerStopTheRing.Invoke();
         }
     }
+
+
 }
 
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class AnnaManager : MonoBehaviour
 {
+    public static bool firstBookOKAY;
 
     public static bool exitAnna;
 
@@ -198,6 +199,8 @@ public class AnnaManager : MonoBehaviour
 
             instruction_2.text = string.Empty;
             searchField.text = string.Empty;
+
+            firstBookOKAY = true;
         }
     }
     void ExitAnna()
