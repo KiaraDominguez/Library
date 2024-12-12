@@ -2683,10 +2683,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63535acadf4905940822cfb090ddf57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 5
-  raycastLayerMask:
+  pickupRange: 5
+  interactableLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
+  firstBook: firstBook
 --- !u!1001 &353493895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5976,7 +5977,6 @@ MonoBehaviour:
   firstBook: {fileID: 718442539}
   canvasPhone: {fileID: 655400529}
   canvasRulebook: {fileID: 1363812151}
-  firstBookLocationUnlock: 0
 --- !u!4 &785953786
 Transform:
   m_ObjectHideFlags: 0
@@ -9938,6 +9938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea0a69cbea3f0d4bb7d71a97d777fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstBookOKAY: 0
   identificationCanva: {fileID: 524765032}
   usernameIF: {fileID: 1343747980}
   passwordIF: {fileID: 1160311631}
@@ -14859,6 +14860,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1857683805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857683797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0019235057, y: 0.0070167547, z: 0.008009346}
+  m_Center: {x: -0.016814502, y: -0.0021243144, z: 0.0017458543}
+--- !u!114 &1857683806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857683797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5351681d352c447aa60d6ca520a73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLit: 0
 --- !u!4 &1857758098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7293664052678535575, guid: 67e46198e00f8474da885b3b58e93ce6,
@@ -17040,6 +17075,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
       propertyPath: m_TagString
       value: firstBook
       objectReference: {fileID: 0}
@@ -17106,6 +17146,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1857683801}
+    - targetCorrespondingSourceObject: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857683806}
+    - targetCorrespondingSourceObject: {fileID: 2897870633790281597, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857683805}
   m_SourcePrefab: {fileID: 100100000, guid: 18862654625b6184791614d21c04195f, type: 3}
 --- !u!1001 &2047325432
 PrefabInstance:

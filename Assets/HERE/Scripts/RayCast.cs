@@ -4,32 +4,86 @@ using UnityEngine;
 
 public class RayCast : MonoBehaviour
 {
-    // Distance maximale du raycast
-    public float maxDistance = 100f;
+    public float pickupRange = 5f; // Distance maximale pour ramasser un objet
+    public LayerMask interactableLayer; // Couches des objets ramassables
+    public string firstBook = "firstBook"; // Nom de l'objet spécifique à ramasser
 
-    // Couche à considérer pour le raycast
-    public LayerMask raycastLayerMask;
+    private Camera playerCamera;
 
-    void Update()
+    void Start()
     {
-        // Lancer le raycast au centre de la caméra
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, maxDistance, raycastLayerMask))
+        // Récupère la caméra attachée à l'objet
+        playerCamera = GetComponent<Camera>();
+        if (playerCamera == null)
         {
-            // Si un objet est touché, afficher son nom
-            Debug.Log($"Objet regardé : {hit.collider.gameObject.name}");
-
-            // Exemple : Ajouter des interactions spécifiques avec l'objet
-            // hit.collider.GetComponent<YourComponent>()?.DoSomething();
+            Debug.LogError("Aucune caméra trouvée sur cet objet. Attachez ce script à la caméra principale.");
         }
     }
 
-    // Affiche une ligne de débogage dans la scène pour visualiser le raycast
-    void OnDrawGizmos()
+    void Update()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * maxDistance);
+        CheckForBook();
+
+        if (Input.GetKeyDown(KeyCode.Space) && Manager.playerSeeFirstBook)
+        {
+            TryPickupObject();
+        }
+
+        // Affiche le Raycast pour le debug
+        ShowRaycast();
+    }
+
+    void CheckForBook()
+    {
+        // Crée un raycast à partir du centre de l'écran
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        RaycastHit hit;
+
+        // Vérifie si le joueur regarde le livre
+        if (Physics.Raycast(ray, out hit, pickupRange, interactableLayer))
+        {
+            if (hit.collider.gameObject.name == firstBook)
+            {
+                Manager.playerSeeFirstBook = true;
+                Debug.Log("Le joueur voit le premier livre.");
+            }
+        }
+    }
+
+    void TryPickupObject()
+    {
+        // Crée un raycast à partir du centre de l'écran
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        RaycastHit hit;
+
+        // Vérifie s'il y a un objet dans la portée
+        if (Physics.Raycast(ray, out hit, pickupRange, interactableLayer))
+        {
+            GameObject pickedObject = hit.collider.gameObject;
+
+            // Vérifie si c'est le premier livre
+            if (pickedObject.name == firstBook)
+            {
+                Debug.Log("Vous avez ramassé le premier livre !");
+
+                // Désactive ou détruit l'objet ramassé (selon vos besoins)
+                pickedObject.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.Log("Aucun objet à ramasser.");
+        }
+    }
+
+    void ShowRaycast()
+    {
+        // Crée un raycast à partir du centre de l'écran
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        // Dessine le raycast dans la scène
+        Debug.DrawRay(ray.origin, ray.direction * pickupRange, Color.red);
     }
 }
+
+

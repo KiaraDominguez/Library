@@ -39,7 +39,10 @@ public class Manager : MonoBehaviour
 
     // FIRST BOOK
 
-    [SerializeField] bool firstBookLocationUnlock;
+    public static bool firstBookLocationUnlock;
+    public static bool playerSeeFirstBook;
+    public static event Action firstBookLit;
+
 
     void Start()
     {
@@ -57,8 +60,9 @@ public class Manager : MonoBehaviour
         //txt rulebook
         canvasRulebook.gameObject.SetActive(false);
 
-        // FIRST BOOK
-        firstBookLocationUnlock = AnnaManager.firstBookOKAY;
+        firstBook.SetActive(false);
+
+
     }
 
     IEnumerator MyCoroutine()
@@ -120,7 +124,16 @@ public class Manager : MonoBehaviour
         if (blackOutFix)
         {
             boss.SetActive(false);
+            firstBook.SetActive(true);
             TriggerPhoneRinging(true);
+        }
+
+        // FIRST BOOK
+        
+        if (firstBookLocationUnlock && playerSeeFirstBook) 
+        {
+            TriggerFirstBookLit();
+
         }
 
     }
@@ -167,6 +180,13 @@ public class Manager : MonoBehaviour
         }
     }
 
+    private void TriggerFirstBookLit()
+    {
+        if (firstBookLit != null)
+        {
+            firstBookLit.Invoke();
+        }
+    }
 
 }
 

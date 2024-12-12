@@ -10,7 +10,7 @@ public class PhoneCall : MonoBehaviour
     private Animator animator;
 
     private bool isRinging = false;
-    private bool isAnswering = false;
+    //private bool isAnswering = false;
 
     //BOOL POUR LE MANAGER//
     public bool phoneAnswer;
@@ -45,7 +45,7 @@ public class PhoneCall : MonoBehaviour
     {
         // Le téléphone commence à sonner
         isRinging = ringing;
-        isAnswering = false;
+        //isAnswering = false;
 
         animator.SetBool("isRinging", ringing);
         animator.SetBool("isAnswering", false);
@@ -59,7 +59,7 @@ public class PhoneCall : MonoBehaviour
         // L'utilisateur répond au téléphone
 
         isRinging = false;
-        isAnswering = true;
+        //isAnswering = true;
         animator.SetBool("isRinging", false);
         animator.SetBool("isAnswering", true);
         animator.SetBool("isHangingUp", false);
@@ -69,7 +69,7 @@ public class PhoneCall : MonoBehaviour
     {
         // Le manager raccroche le téléphone
         isRinging = false;
-        isAnswering = false;
+        //isAnswering = false;
 
         animator.SetBool("isRinging", false);
         animator.SetBool("isAnswering", false);
