@@ -10,6 +10,8 @@ public class RayCast : MonoBehaviour
 
     private Camera playerCamera;
 
+    public static int playerSawBook;
+
     void Start()
     {
         // Récupère la caméra attachée à l'objet
@@ -26,7 +28,14 @@ public class RayCast : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Manager.playerSeeFirstBook)
         {
+            Debug.Log("espace");
+
             TryPickupObject();
+        }
+
+        if (playerSawBook == 1)
+        {
+            //
         }
 
         // Affiche le Raycast pour le debug
@@ -45,7 +54,8 @@ public class RayCast : MonoBehaviour
             if (hit.collider.gameObject.name == firstBook)
             {
                 Manager.playerSeeFirstBook = true;
-                Debug.Log("Le joueur voit le premier livre.");
+                playerSawBook = 1;
+                //Debug.Log("Le joueur voit le premier livre.");
             }
         }
     }

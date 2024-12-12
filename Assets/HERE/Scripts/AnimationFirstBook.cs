@@ -24,7 +24,7 @@ public class AnimationFirstBook : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (RayCast.playerSawBook ==1 && )
         {
             StopTheLit();
         }

@@ -40,7 +40,7 @@ public class Manager : MonoBehaviour
     // FIRST BOOK
 
     public static bool firstBookLocationUnlock;
-    public static bool playerSeeFirstBook;
+    public static bool playerSeeFirstBook = true;
     public static event Action firstBookLit;
 
 
@@ -132,6 +132,7 @@ public class Manager : MonoBehaviour
         
         if (firstBookLocationUnlock && playerSeeFirstBook) 
         {
+            Debug.Log("TriggerFirstBookLit");
             TriggerFirstBookLit();
 
         }
