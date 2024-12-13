@@ -74,7 +74,7 @@ public class RayCast : MonoBehaviour
             // Vérifie si c'est le premier livre
             if (pickedObject.name == firstBook)
             {
-                Debug.Log("Vous avez ramassé le premier livre !");
+                //Debug.Log("Vous avez ramassé le premier livre !");
 
                 // Désactive ou détruit l'objet ramassé (selon vos besoins)
                 pickedObject.SetActive(false);
@@ -82,7 +82,7 @@ public class RayCast : MonoBehaviour
         }
         else
         {
-            Debug.Log("Aucun objet à ramasser.");
+            //Debug.Log("Aucun objet à ramasser.");
         }
     }
 

@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
+        canIHungUp = false;
         isDialogueActive = true;
 
             lines.Clear();
@@ -83,6 +84,7 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
+
         isDialogueActive = false;
         canIHungUp = true;
     }

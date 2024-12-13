@@ -28,12 +28,22 @@ public class Rulebook : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.R) && isLit) 
-        //{
-            //StopTheLit();
-            //animator.SetBool("lit", false);
-            //rulebookIsOpen = true;
-        //}
+        if (Input.GetMouseButtonDown(0)) // Vérifie le clic gauche
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform == transform && isLit) 
+                {
+                    StopTheLit();
+                    animator.SetBool("lit", false);
+                    rulebookIsOpen = true;
+                }
+            }
+        }
+
         if (!rulebookIsOpen)
         {
             canvasGroup.alpha = 0f;
@@ -46,20 +56,11 @@ public class Rulebook : MonoBehaviour
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && rulebookIsOpen)
+        if (Input.GetKeyDown(KeyCode.Escape) && rulebookIsOpen)
         {
             count++;
             rulebookIsOpen=false;
             FirstTimeRead();
-        }
-    }
-    private void OnMouseDown()
-    {
-        if (isLit)
-        {
-            StopTheLit();
-            animator.SetBool("lit", false);
-            rulebookIsOpen = true;
         }
     }
 

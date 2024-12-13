@@ -10,15 +10,18 @@ public class PhoneCall : MonoBehaviour
     private Animator animator;
 
     private bool isRinging = false;
-    //private bool isAnswering = false;
+    private bool isAnswering = false;
 
     //BOOL POUR LE MANAGER//
     public bool phoneAnswer;
 
+    public AudioClip sound;
+    private AudioSource audioSource;
+
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        audioSource = GetComponent<AudioSource>();
     }
     void OnEnable()
     {
@@ -34,30 +37,34 @@ public class PhoneCall : MonoBehaviour
     }
     
     void Update()
-    
     {
-        //répondre au téléphone avec la touche "B"
-        //if (Input.GetKeyDown(KeyCode.B) && isRinging)
-        //{
-              //AnswerPhone();
-        //}
-    }
-    private void OnMouseDown()
-    {
-        if (isRinging)
+        if (Input.GetMouseButtonDown(0)) // Vérifie le clic gauche
         {
-            AnswerPhone();
-        }
-    }
-    public void StartRinging(bool ringing)
-    {
-        // Le téléphone commence à sonner
-        isRinging = ringing;
-        //isAnswering = false;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        animator.SetBool("isRinging", ringing);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform == transform && isRinging) // Vérifie si l'objet cliqué est celui attendu
+                {
+                    AnswerPhone();
+                }
+            }
+        }
+
+    }
+
+    public void StartRinging()
+    {
+        
+        // Le téléphone commence à sonner
+        isRinging = true;
+        isAnswering = false;
+
+        animator.SetBool("isRinging", true);
         animator.SetBool("isAnswering", false);
         animator.SetBool("isHangingUp", false);
+
     }
 
     public void AnswerPhone()
@@ -67,7 +74,8 @@ public class PhoneCall : MonoBehaviour
         // L'utilisateur répond au téléphone
 
         isRinging = false;
-        //isAnswering = true;
+        isAnswering = true;
+
         animator.SetBool("isRinging", false);
         animator.SetBool("isAnswering", true);
         animator.SetBool("isHangingUp", false);
@@ -77,11 +85,19 @@ public class PhoneCall : MonoBehaviour
     {
         // Le manager raccroche le téléphone
         isRinging = false;
-        //isAnswering = false;
+        isAnswering = false;
 
         animator.SetBool("isRinging", false);
         animator.SetBool("isAnswering", false);
         animator.SetBool("isHangingUp", true);
+    }
+    public void PlayRing()
+    {
+        audioSource.PlayOneShot(sound);
+    }
+    public void StopRing()
+    {
+        audioSource.Stop();
     }
 
 }

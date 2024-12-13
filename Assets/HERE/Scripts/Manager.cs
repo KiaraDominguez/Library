@@ -13,7 +13,7 @@ public class Manager : MonoBehaviour
 
 
     //CALL BOSS//
-    public static event Action <bool> makeThePhoneRing;
+    public static event Action makeThePhoneRing;
     public static event Action startDialogue;
     public static event Action callHasBeenAnswerStopTheRing;
     private bool startCallBoss;
@@ -46,6 +46,8 @@ public class Manager : MonoBehaviour
     private string txtrulebook = "Lis le réglèment d'intérieur";
     private string txtblackout = "Trouve et active le disjoncteur";
     private string txtfirstbook = "Trouve un moyen de localiser le Lire du Dr. Elias";
+
+
 
 
     void Start()
@@ -82,32 +84,8 @@ public class Manager : MonoBehaviour
     }
     void Update()
     {
-        //CALL BOSS//
-        phoneAnswer = phone.phoneAnswer;
+        CallBoss();
 
-        if (startCallBoss)
-        {
-            TriggerPhoneRinging(true);
-        }
-        if (phoneAnswer)
-        {
-            TriggerStartDialogue();
-            phone.phoneAnswer = false;
-            startCallBoss = false;
-        }
-        if (DialogueManager.Instance.canIHungUp) 
-        {
-            TriggerStopTheRing();
-            DialogueManager.Instance.canIHungUp = false;
-
-            if (!blackOutFix) 
-            {
-                //SURBRILLANCE DU RULEBOOK//
-                TriggerTheRuleBook();
-                mission.text = txtrulebook;
-            }
-            
-        }
         //RULEBOOK LU //
         rulebookRead = rule.rulebookHasBeenRaed;
         if (rulebookRead) 
@@ -119,7 +97,7 @@ public class Manager : MonoBehaviour
         {
             boss.SetActive(false);
             firstBook.SetActive(true);
-            TriggerPhoneRinging(true);
+            //TriggerPhoneRinging();
             mission.text = txtfirstbook;
         }
 
@@ -131,6 +109,36 @@ public class Manager : MonoBehaviour
             TriggerFirstBookLit();
         }
 
+    }
+    public void CallBoss()
+    {
+        //CALL BOSS//
+        phoneAnswer = phone.phoneAnswer;
+
+        if (startCallBoss)
+        {
+            TriggerPhoneRinging();
+        }
+        if (phoneAnswer)
+        {
+            TriggerStartDialogue();
+            phone.phoneAnswer = false;
+            startCallBoss = false;
+        }
+        if (DialogueManager.Instance.canIHungUp)
+        {
+
+            TriggerStopTheRing();
+            DialogueManager.Instance.canIHungUp = false;
+
+            if (!blackOutFix)
+            {
+                //SURBRILLANCE DU RULEBOOK//
+                TriggerTheRuleBook();
+                mission.text = txtrulebook;
+            }
+
+        }
     }
 
     //SURBRILLANCE DU RULEBOOK//
@@ -159,11 +167,11 @@ public class Manager : MonoBehaviour
         }
     }
 
-    private void TriggerPhoneRinging(bool ringing)
+    private void TriggerPhoneRinging()
     {
         if (makeThePhoneRing != null)
         {
-            makeThePhoneRing.Invoke(ringing); 
+            makeThePhoneRing.Invoke(); 
         }
     }
     private void TriggerStopTheRing()
