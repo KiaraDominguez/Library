@@ -37,7 +37,7 @@ public class Manager : MonoBehaviour
     // FIRST BOOK
 
     public static bool firstBookLocationUnlock;
-    public static bool playerSeeFirstBook = true;
+    public static bool playerSeeFirstBook;
     public static event Action firstBookLit;
 
     //MISSIONS
@@ -46,6 +46,8 @@ public class Manager : MonoBehaviour
     private string txtrulebook = "Lis le réglèment d'intérieur";
     private string txtblackout = "Trouve et active le disjoncteur";
     private string txtfirstbook = "Trouve un moyen de localiser le Lire du Dr. Elias";
+    private string txtfirstbookLocation = "::::";
+    private string txtinstructionEspace = "appuie sur ESPACE pour le mettre en réserve";
 
 
 
@@ -102,11 +104,13 @@ public class Manager : MonoBehaviour
         }
 
         // FIRST BOOK
-        
+        if(firstBookLocationUnlock) mission.text = txtfirstbookLocation;
+
         if (firstBookLocationUnlock && playerSeeFirstBook) 
         {
             Debug.Log("TriggerFirstBookLit");
             TriggerFirstBookLit();
+            mission.text = txtinstructionEspace;
         }
 
     }

@@ -11561,7 +11561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea0a69cbea3f0d4bb7d71a97d777fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstBookOKAY: 1
+  firstBookOKAY: 0
   identificationCanva: {fileID: 524765032}
   usernameIF: {fileID: 1343747980}
   passwordIF: {fileID: 1160311631}
@@ -14159,7 +14159,7 @@ AudioSource:
   m_Volume: 0.305
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 56
@@ -15532,7 +15532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions: {fileID: -944628639613478452, guid: de7a4b2e97b16fb4c8d6ca90d74a6bec, type: 3}
-  speed: 9
+  speed: 12
   cam: {fileID: 330585546}
   footStepSounds: {fileID: 1735034093}
   playerPosBase: {x: 0, y: 0, z: 0}

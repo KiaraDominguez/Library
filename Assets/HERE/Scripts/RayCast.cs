@@ -32,12 +32,6 @@ public class RayCast : MonoBehaviour
 
             TryPickupObject();
         }
-
-        if (playerSawBook == 1)
-        {
-            //
-        }
-
         // Affiche le Raycast pour le debug
         ShowRaycast();
     }
@@ -76,8 +70,9 @@ public class RayCast : MonoBehaviour
             {
                 //Debug.Log("Vous avez ramassé le premier livre !");
 
-                // Désactive ou détruit l'objet ramassé (selon vos besoins)
                 pickedObject.SetActive(false);
+                Manager.playerSeeFirstBook = false;
+
             }
         }
         else

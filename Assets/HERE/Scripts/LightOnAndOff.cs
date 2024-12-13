@@ -51,6 +51,8 @@ public class LightOnAndOff : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        redLightFuses.enabled = false;
+        DesactivatedLuxSecours();
         lightON = !(lightON);
         Fix();
     }
@@ -63,9 +65,7 @@ public class LightOnAndOff : MonoBehaviour
     private void TurnOnLights()
     {
         lightON = false;
-        redLightFuses.enabled = false;
-        DesactivatedLuxSecours();
-
+        
     }
 
     public void Fix()
