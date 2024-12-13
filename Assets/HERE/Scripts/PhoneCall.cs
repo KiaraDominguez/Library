@@ -32,11 +32,19 @@ public class PhoneCall : MonoBehaviour
         Manager.callHasBeenAnswerStopTheRing -= HangUpPhone;
 
     }
+    
     void Update()
+    
     {
-
         //répondre au téléphone avec la touche "B"
-        if (Input.GetKeyDown(KeyCode.B) && isRinging)
+        //if (Input.GetKeyDown(KeyCode.B) && isRinging)
+        //{
+              //AnswerPhone();
+        //}
+    }
+    private void OnMouseDown()
+    {
+        if (isRinging)
         {
             AnswerPhone();
         }

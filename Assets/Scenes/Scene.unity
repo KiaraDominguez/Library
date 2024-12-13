@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &38101360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4803,7 +4803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &599020946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5247,7 +5247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &655400527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6577,8 +6577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 360414185}
   firstBook: {fileID: 718442539}
-  canvasPhone: {fileID: 655400529}
-  canvasRulebook: {fileID: 1363812151}
+  mission: {fileID: 1094701614}
 --- !u!4 &785953786
 Transform:
   m_ObjectHideFlags: 0
@@ -7141,7 +7140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &855261709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8203,7 +8202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1052980298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8821,7 +8820,7 @@ GameObject:
   - component: {fileID: 1094701615}
   - component: {fileID: 1094701614}
   m_Layer: 5
-  m_Name: phone
+  m_Name: mission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8866,7 +8865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V to answer the Phone
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c5d89d8289ef304790c0f36c30cfd9b, type: 2}
   m_sharedMaterial: {fileID: 7286719760620269646, guid: 1c5d89d8289ef304790c0f36c30cfd9b,
@@ -11480,7 +11479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1363812149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13600,7 +13599,7 @@ GameObject:
   - component: {fileID: 1654638006}
   - component: {fileID: 1654638005}
   m_Layer: 5
-  m_Name: ShoortCut_Canva
+  m_Name: Missions_Canva
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

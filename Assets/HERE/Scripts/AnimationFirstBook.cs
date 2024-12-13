@@ -24,7 +24,7 @@ public class AnimationFirstBook : MonoBehaviour
 
     void Update()
     {
-        if (RayCast.playerSawBook ==1 && )
+        if (RayCast.playerSawBook ==1 )
         {
             StopTheLit();
         }

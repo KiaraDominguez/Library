@@ -28,12 +28,12 @@ public class Rulebook : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && isLit) 
-        {
-            StopTheLit();
-            animator.SetBool("lit", false);
-            rulebookIsOpen = true;
-        }
+        //if(Input.GetKeyDown(KeyCode.R) && isLit) 
+        //{
+            //StopTheLit();
+            //animator.SetBool("lit", false);
+            //rulebookIsOpen = true;
+        //}
         if (!rulebookIsOpen)
         {
             canvasGroup.alpha = 0f;
@@ -51,6 +51,15 @@ public class Rulebook : MonoBehaviour
             count++;
             rulebookIsOpen=false;
             FirstTimeRead();
+        }
+    }
+    private void OnMouseDown()
+    {
+        if (isLit)
+        {
+            StopTheLit();
+            animator.SetBool("lit", false);
+            rulebookIsOpen = true;
         }
     }
 

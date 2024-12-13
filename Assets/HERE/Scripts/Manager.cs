@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 
 
@@ -19,8 +20,6 @@ public class Manager : MonoBehaviour
     private GameObject other;
     private PhoneCall phone;
     private bool phoneAnswer;
-    //txt phone
-    public Canvas canvasPhone;
 
     //RULEBOOK LU //
     private GameObject obj;
@@ -29,8 +28,6 @@ public class Manager : MonoBehaviour
 
     //SURBRILLANCE DU RULEBOOK//
     public static event Action litRuleBook;
-    //txt rulebook
-    public Canvas canvasRulebook;
 
     // BLACK-OUT
     public static event Action firstBlackOut;
@@ -43,6 +40,13 @@ public class Manager : MonoBehaviour
     public static bool playerSeeFirstBook = true;
     public static event Action firstBookLit;
 
+    //MISSIONS
+    public TextMeshProUGUI mission;
+    private string txtphone = "Répond au téléphone";
+    private string txtrulebook = "Lis le réglèment d'intérieur";
+    private string txtblackout = "Trouve et active le disjoncteur";
+    private string txtfirstbook = "Trouve un moyen de localiser le Lire du Dr. Elias";
+
 
     void Start()
     {
@@ -50,18 +54,15 @@ public class Manager : MonoBehaviour
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
         StartCoroutine(MyCoroutine());
-        //txt phone
-        canvasPhone.gameObject.SetActive(false);
 
         //RULEBOOK LU //
         obj = GameObject.FindWithTag("rulebook");
         rule=obj.GetComponent<Rulebook>();
-        
-        //txt rulebook
-        canvasRulebook.gameObject.SetActive(false);
 
         firstBook.SetActive(false);
 
+        //txt mission phone
+        mission.text = txtphone;
 
     }
 
@@ -77,6 +78,7 @@ public class Manager : MonoBehaviour
         yield return new WaitForSeconds(2);
         rule.rulebookHasBeenRaed = false;
         TriggerBlackOut();
+        mission.text = txtblackout;
     }
     void Update()
     {
@@ -86,18 +88,12 @@ public class Manager : MonoBehaviour
         if (startCallBoss)
         {
             TriggerPhoneRinging(true);
-
-            canvasPhone.gameObject.SetActive(true);
-
         }
         if (phoneAnswer)
         {
             TriggerStartDialogue();
             phone.phoneAnswer = false;
             startCallBoss = false;
-
-            canvasPhone.gameObject.SetActive(false);
-
         }
         if (DialogueManager.Instance.canIHungUp) 
         {
@@ -108,7 +104,7 @@ public class Manager : MonoBehaviour
             {
                 //SURBRILLANCE DU RULEBOOK//
                 TriggerTheRuleBook();
-                canvasRulebook.gameObject.SetActive(true);
+                mission.text = txtrulebook;
             }
             
         }
@@ -118,14 +114,13 @@ public class Manager : MonoBehaviour
         {
             StartCoroutine(CoroutineFirstBlackOut());
 
-            canvasRulebook.gameObject.SetActive(false);
-
         }
         if (blackOutFix)
         {
             boss.SetActive(false);
             firstBook.SetActive(true);
             TriggerPhoneRinging(true);
+            mission.text = txtfirstbook;
         }
 
         // FIRST BOOK
@@ -134,7 +129,6 @@ public class Manager : MonoBehaviour
         {
             Debug.Log("TriggerFirstBookLit");
             TriggerFirstBookLit();
-
         }
 
     }
