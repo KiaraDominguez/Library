@@ -4,56 +4,35 @@ using UnityEngine;
 
 public class Jumpscare : MonoBehaviour
 {
-    [SerializeField] new GameObject gameObject;
-    [SerializeField] Transform player;
+    public Transform player;
+    public GameObject objectToSpawn;
+    public float distanceBehind = 2f;
+    public float verticalOffset = 0f;
 
-    [SerializeField] float distanceBehind = 5f;
-    private Vector3 behindPosition;
-    private bool hasAlreadyAppear;
-
-    void Start()
+    void OnEnable()
     {
-        // Calculer la position derrière le joueur
-        behindPosition = player.position - player.forward * distanceBehind;
-        gameObject.SetActive(false);
+        Manager.jumpscare += SpawnObject;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnDisable()
     {
-        //verifie si le joueur rentre dans le trigger et si il n y est pas encore rentrer
-        if (other.CompareTag("Player") && (!hasAlreadyAppear))
+        Manager.jumpscare -= SpawnObject;
+    }
+    public void SpawnObject()
+    {
+        if (player != null && objectToSpawn != null)
         {
-            // Fait apparaître l'objet derriere le joueur
-            gameObject.transform.position = behindPosition;
-            gameObject.transform.rotation = player.rotation;
-            gameObject.SetActive(true);
+            Debug.Log("oK");
+            // Calculer la position derrière le joueur
+            Vector3 spawnPosition = player.position - player.forward * distanceBehind;
+            spawnPosition.y += verticalOffset;
 
-            hasAlreadyAppear = true;
+            // Instancier l'objet
+            Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("Player ou objectToSpawn n'est pas assigné.");
         }
     }
-
-    private void PlayerSawIt()
-    {
-        // prend la position du ghost par rapport au monde et la camera
-        Vector3 viewportPos = Camera.main.WorldToViewportPoint(gameObject.transform.position);
-
-        bool isInView = viewportPos.x >= 0 && viewportPos.x <= 1 && viewportPos.y >= 0 && viewportPos.y <= 1 && viewportPos.z > 0;
-
-        if (isInView)
-        {
-            Invoke("HideObject", 1f);
-        }
-    }
-
-    void Update()
-    {
-        PlayerSawIt();
-    }
-
-    void HideObject()
-    {
-        // Désactiver le Renderer (rendre l'objet invisible)
-       gameObject.GetComponent<Renderer>().enabled = false;
-    }
-
 }

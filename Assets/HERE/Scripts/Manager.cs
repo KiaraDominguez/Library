@@ -49,7 +49,9 @@ public class Manager : MonoBehaviour
     private string txtfirstbookLocation = "::::";
     private string txtinstructionEspace = "appuie sur ESPACE pour le mettre en réserve";
 
+    // jumpscare
 
+    public static event Action jumpscare;
 
 
     void Start()
@@ -97,6 +99,9 @@ public class Manager : MonoBehaviour
         }
         if (blackOutFix)
         {
+            // ICI JUMPSCARE
+            TriggerJumpscare();
+
             boss.SetActive(false);
             firstBook.SetActive(true);
             //TriggerPhoneRinging();
@@ -113,6 +118,13 @@ public class Manager : MonoBehaviour
             mission.text = txtinstructionEspace;
         }
 
+    }
+    private void TriggerJumpscare() 
+    {
+        if (jumpscare != null)
+        {
+            jumpscare.Invoke();
+        }
     }
     public void CallBoss()
     {
