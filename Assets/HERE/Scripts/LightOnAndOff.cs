@@ -20,10 +20,14 @@ public class LightOnAndOff : MonoBehaviour
 
     public bool lightON;
 
+    [SerializeField] GameObject radio;
+    private AudioSource audioSource;
     void Start()
     {
         redLightFuses.enabled = false;
         DesactivatedLuxSecours();
+
+        audioSource = radio.GetComponent<AudioSource>();
     }
     void OnEnable()
     {
@@ -55,12 +59,14 @@ public class LightOnAndOff : MonoBehaviour
         DesactivatedLuxSecours();
         lightON = !(lightON);
         Fix();
+        audioSource.Play();
     }
     private void TurnOffLights()
     {
         lightON =true;
         redLightFuses.enabled = true;
         ActivatedLuxSecours();
+        audioSource.Stop();
     }
     private void TurnOnLights()
     {
