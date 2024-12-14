@@ -11,6 +11,7 @@ public class PhoneCall : MonoBehaviour
 
     private bool isRinging = false;
     private bool isAnswering = false;
+    private bool isHangingUp = false;
 
     //BOOL POUR LE MANAGER//
     public bool phoneAnswer;
@@ -60,10 +61,11 @@ public class PhoneCall : MonoBehaviour
         // Le téléphone commence à sonner
         isRinging = true;
         isAnswering = false;
+        isHangingUp = false ;
 
         animator.SetBool("isRinging", true);
         animator.SetBool("isAnswering", false);
-        animator.SetBool("isHangingUp", false);
+        animator.SetBool("isHangingUp", isHangingUp);
 
     }
 
@@ -75,21 +77,24 @@ public class PhoneCall : MonoBehaviour
 
         isRinging = false;
         isAnswering = true;
+        isHangingUp = false;
 
         animator.SetBool("isRinging", false);
         animator.SetBool("isAnswering", true);
-        animator.SetBool("isHangingUp", false);
+        animator.SetBool("isHangingUp", isHangingUp);
     }
 
     public void HangUpPhone()
     {
+        Debug.Log("hangUp");
         // Le manager raccroche le téléphone
         isRinging = false;
         isAnswering = false;
+        isHangingUp = true;
 
         animator.SetBool("isRinging", false);
         animator.SetBool("isAnswering", false);
-        animator.SetBool("isHangingUp", true);
+        animator.SetBool("isHangingUp", isHangingUp);
     }
     public void PlayRing()
     {

@@ -104,7 +104,7 @@ public class Manager : MonoBehaviour
 
             boss.SetActive(false);
             firstBook.SetActive(true);
-            //TriggerPhoneRinging();
+            FirstBookCall();
             mission.text = txtfirstbook;
         }
 
@@ -153,6 +153,29 @@ public class Manager : MonoBehaviour
                 TriggerTheRuleBook();
                 mission.text = txtrulebook;
             }
+
+        }
+        
+    }
+    public void FirstBookCall()
+    {
+        phoneAnswer = phone.phoneAnswer;
+
+        //if (startCallBoss)
+        //{
+            TriggerPhoneRinging();
+        //}
+        if (phoneAnswer)
+        {
+            TriggerStartDialogue();
+            phone.phoneAnswer = false;
+            //startCallBoss = false;
+        }
+        if (DialogueManager.Instance.canIHungUp)
+        {
+            //Debug.Log(canIHungUp);
+            TriggerStopTheRing();
+            //DialogueManager.Instance.canIHungUp = false;
 
         }
     }

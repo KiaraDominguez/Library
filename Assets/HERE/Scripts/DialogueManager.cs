@@ -84,9 +84,9 @@ public class DialogueManager : MonoBehaviour
     }
     void EndDialogue()
     {
-
         isDialogueActive = false;
         canIHungUp = true;
+        
     }
 
     void Update()

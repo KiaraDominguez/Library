@@ -1092,7 +1092,7 @@ MonoBehaviour:
   characterName: {fileID: 1830949816}
   dialogueArea: {fileID: 1997669518}
   isDialogueActive: 0
-  typingSpeed: 0.2
+  typingSpeed: 0.05
   canvasGroup: {fileID: 168296207}
   canIHungUp: 0
 --- !u!225 &168296207
@@ -3277,15 +3277,34 @@ MonoBehaviour:
     - character:
         name: BOSS
         icon: {fileID: 0}
-      line: Hello
+      line: " All\xF4 ? Bonsoir. C\u2019est toi, le nouveau ? Bien. \xC9coute-moi
+        attentivement, je vais te donner les informations dont tu as besoin."
     - character:
         name: BOSS
         icon: {fileID: 0}
-      line: is me , your boss
+      line: "Tu remplaces l\u2019ancien employ\xE9\u2026 qui a, eh bien, disparu.
+        Oui, disparu. Personne ne sait ce qui lui est arriv\xE9. Enfin, bref, ce
+        n\u2019est pas ton probl\xE8me, mais je pr\xE9f\xE8re que tu sois au courant."
     - character:
         name: BOSS
         icon: {fileID: 0}
-      line: blablabla
+      line: "Tes t\xE2ches sont simples : r\xE9pondre au t\xE9l\xE9phone. Certains
+        de nos clients\u2026 sp\xE9ciaux appellent parfois la nuit pour r\xE9server
+        des livres. Tu devras les mettre de c\xF4t\xE9 dans la r\xE9serve. Suis bien
+        leurs instructions et note tout."
+    - character:
+        name: BOSS
+        icon: {fileID: 0}
+      line: "Tu trouveras le manuel des employ\xE9s sur le comptoir. Il contient
+        tout ce que tu dois savoir. Lis-le attentivement. Ce boulot est une question
+        de d\xE9tails, surtout avec les clients que nous avons."
+    - character:
+        name: BOSS
+        icon: {fileID: 0}
+      line: "Ah, et je te rappelle que c\u2019est uniquement un poste de nuit. Une
+        semaine, pas plus. Juste le temps que je trouve quelqu\u2019un \xE0 long
+        terme. Fais ton boulot, reste concentr\xE9, et tout ira bien. Compris ? 
+        Bien. Bonne chance. [Raccroche brutalement]"
 --- !u!1001 &368001434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6035,13 +6054,36 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: first book
+        name: Vieille femme
         icon: {fileID: 0}
-      line: Hello
+      line: "Oh, bonsoir, ma ch\xE8re. D\xE9sol\xE9e de vous d\xE9ranger \xE0 une
+        heure pareille, mais j\u2019ai besoin de votre aide. Vous \xEAtes bien la
+        personne qui s\u2019occupe des livres cette nuit, n\u2019est-ce pas ?"
     - character:
-        name: first book
+        name: Vieille femme
         icon: {fileID: 0}
-      line: Elias
+      line: " Voil\xE0, je cherche un livre. C\u2019est une \u0153uvre du Dr. Elias\u2026
+        oh, mais j\u2019ai compl\xE8tement oubli\xE9 son nom de famille, quelle t\xEAte
+        en l\u2019air je fais ! Vous voyez, c\u2019est un vieil ouvrage, publi\xE9
+        en 1873, si ma m\xE9moire ne me joue pas de tours."
+    - character:
+        name: Vieille femme
+        icon: {fileID: 0}
+      line: " Je sais que ce n\u2019est pas une description tr\xE8s pr\xE9cise, mais
+        vous \xEAtes certainement d\xE9brouillard, non ? Vous trouverez bien. Dr.
+        Elias, publi\xE9 en 1873\u2026 Je suis s\xFBre que \xE7a vous parle, n\u2019est-ce
+        pas ?"
+    - character:
+        name: Vieille femme
+        icon: {fileID: 0}
+      line: "Prenez votre temps, je ne suis pas press\xE9e. Je viendrai demain soir,
+        disons\u2026 apr\xE8s le coucher du soleil, pour le r\xE9cup\xE9rer. Ce serait
+        adorable si vous pouviez le mettre de c\xF4t\xE9 pour moi."
+    - character:
+        name: Vieille femme
+        icon: {fileID: 0}
+      line: "Merci infiniment, mon cher. Vous \xEAtes tr\xE8s aimable. Passez une
+        bonne nuit, et \xE0 demain.\n[Elle raccroche d\xE9licatement.]"
 --- !u!1 &733484592
 GameObject:
   m_ObjectHideFlags: 0
@@ -14160,7 +14202,7 @@ AudioSource:
   m_Volume: 0.305
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 56
@@ -17103,8 +17145,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7269799baa19d13429b776073fe2ae94, type: 2}
-  m_sharedMaterial: {fileID: 7748012155280503018, guid: 7269799baa19d13429b776073fe2ae94,
+  m_fontAsset: {fileID: 11400000, guid: 1c5d89d8289ef304790c0f36c30cfd9b, type: 2}
+  m_sharedMaterial: {fileID: 7286719760620269646, guid: 1c5d89d8289ef304790c0f36c30cfd9b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -19346,8 +19388,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1c5d89d8289ef304790c0f36c30cfd9b, type: 2}
+  m_sharedMaterial: {fileID: 7286719760620269646, guid: 1c5d89d8289ef304790c0f36c30cfd9b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
