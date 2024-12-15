@@ -11947,7 +11947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea0a69cbea3f0d4bb7d71a97d777fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstBookOKAY: 0
+  firstBookOKAY: 1
   identificationCanva: {fileID: 524765032}
   usernameIF: {fileID: 1343747980}
   passwordIF: {fileID: 1160311631}
@@ -22526,7 +22526,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.846138
+      value: 104.151
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
@@ -22536,7 +22536,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -53
+      value: 105.7641
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}

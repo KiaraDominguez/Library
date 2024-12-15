@@ -56,6 +56,9 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
+
+        firstBookLocationUnlock = true ;
+
         //CALL BOSS//
         other = GameObject.FindWithTag("phone");
         phone = other.GetComponent<PhoneCall>();
@@ -113,7 +116,7 @@ public class Manager : MonoBehaviour
 
         if (firstBookLocationUnlock && playerSeeFirstBook) 
         {
-            Debug.Log("TriggerFirstBookLit");
+            
             TriggerFirstBookLit();
             mission.text = txtinstructionEspace;
         }

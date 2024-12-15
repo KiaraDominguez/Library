@@ -24,19 +24,20 @@ public class AnimationFirstBook : MonoBehaviour
 
     void Update()
     {
-        if (RayCast.playerSawBook ==1 )
-        {
-            StopTheLit();
-        }
+        //if (RayCast.playerSawBook ==1 )
+        //{
+            //StopTheLit();
+        //}
     }
 
     public void MakeTheBookLit()
     {
-        animator.SetBool("TouchByRayCast", isLit);
+        Debug.Log("TriggerFirstBookLit");
+        animator.SetBool("TouchByRayCast", true);
     }
     public void StopTheLit()
     {
-        animator.SetBool("TouchByRayCast", !isLit);
+        animator.SetBool("TouchByRayCast", false);
 
     }
 }
