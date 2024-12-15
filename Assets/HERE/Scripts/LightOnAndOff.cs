@@ -26,6 +26,10 @@ public class LightOnAndOff : MonoBehaviour
 
     [SerializeField] GameObject radio;
     private AudioSource audioSource;
+
+    [SerializeField] GameObject anna;
+
+
     void Start()
     {
         redLightFuses.enabled = false;
@@ -70,9 +74,13 @@ public class LightOnAndOff : MonoBehaviour
         lightON = !(lightON);
         Fix();
         audioSource.Play();
+        
+        anna.SetActive(true);
     }
     private void TurnOffLights()
     {
+        anna.SetActive(false);
+
         lightON =true;
 
         redLightFuses.enabled = true;

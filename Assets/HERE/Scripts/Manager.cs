@@ -56,8 +56,8 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-
-        firstBookLocationUnlock = true ;
+        //test animation firstbooklit
+        //firstBookLocationUnlock = true ;
 
         //CALL BOSS//
         other = GameObject.FindWithTag("phone");
