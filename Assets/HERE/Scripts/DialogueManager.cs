@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
     //permet d'accéder au dialogue manager
 
-    public Image CharacterIcon;
+    //public Image CharacterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
     //référence pour les composents Ui dans unity
@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
 
         DialogueLine currentLine = lines.Dequeue();
 
-        CharacterIcon.sprite = currentLine.character.icon;
+        //CharacterIcon.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
 
         StopAllCoroutines();

@@ -1207,7 +1207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bcc3c0c76193644a326657347b34d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterIcon: {fileID: 1971683828}
   characterName: {fileID: 1830949816}
   dialogueArea: {fileID: 1997669518}
   isDialogueActive: 0
@@ -3395,31 +3394,26 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: BOSS
-        icon: {fileID: 0}
       line: " All\xF4 ? Bonsoir. C\u2019est toi, le nouveau ? Bien. \xC9coute-moi
         attentivement, je vais te donner les informations dont tu as besoin."
     - character:
         name: BOSS
-        icon: {fileID: 0}
       line: "Tu remplaces l\u2019ancien employ\xE9\u2026 qui a, eh bien, disparu.
         Oui, disparu. Personne ne sait ce qui lui est arriv\xE9. Enfin, bref, ce
         n\u2019est pas ton probl\xE8me, mais je pr\xE9f\xE8re que tu sois au courant."
     - character:
         name: BOSS
-        icon: {fileID: 0}
       line: "Tes t\xE2ches sont simples : r\xE9pondre au t\xE9l\xE9phone. Certains
         de nos clients\u2026 sp\xE9ciaux appellent parfois la nuit pour r\xE9server
         des livres. Tu devras les mettre de c\xF4t\xE9 dans la r\xE9serve. Suis bien
         leurs instructions et note tout."
     - character:
         name: BOSS
-        icon: {fileID: 0}
       line: "Tu trouveras le manuel des employ\xE9s sur le comptoir. Il contient
         tout ce que tu dois savoir. Lis-le attentivement. Ce boulot est une question
         de d\xE9tails, surtout avec les clients que nous avons."
     - character:
         name: BOSS
-        icon: {fileID: 0}
       line: "Ah, et je te rappelle que c\u2019est uniquement un poste de nuit. Une
         semaine, pas plus. Juste le temps que je trouve quelqu\u2019un \xE0 long
         terme. Fais ton boulot, reste concentr\xE9, et tout ira bien. Compris ? 
@@ -6184,33 +6178,28 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Vieille femme
-        icon: {fileID: 0}
       line: "Oh, bonsoir, ma ch\xE8re. D\xE9sol\xE9e de vous d\xE9ranger \xE0 une
         heure pareille, mais j\u2019ai besoin de votre aide. Vous \xEAtes bien la
         personne qui s\u2019occupe des livres cette nuit, n\u2019est-ce pas ?"
     - character:
         name: Vieille femme
-        icon: {fileID: 0}
       line: " Voil\xE0, je cherche un livre. C\u2019est une \u0153uvre du Dr. Elias\u2026
         oh, mais j\u2019ai compl\xE8tement oubli\xE9 son nom de famille, quelle t\xEAte
         en l\u2019air je fais ! Vous voyez, c\u2019est un vieil ouvrage, publi\xE9
         en 1873, si ma m\xE9moire ne me joue pas de tours."
     - character:
         name: Vieille femme
-        icon: {fileID: 0}
       line: " Je sais que ce n\u2019est pas une description tr\xE8s pr\xE9cise, mais
         vous \xEAtes certainement d\xE9brouillard, non ? Vous trouverez bien. Dr.
         Elias, publi\xE9 en 1873\u2026 Je suis s\xFBre que \xE7a vous parle, n\u2019est-ce
         pas ?"
     - character:
         name: Vieille femme
-        icon: {fileID: 0}
       line: "Prenez votre temps, je ne suis pas press\xE9e. Je viendrai demain soir,
         disons\u2026 apr\xE8s le coucher du soleil, pour le r\xE9cup\xE9rer. Ce serait
         adorable si vous pouviez le mettre de c\xF4t\xE9 pour moi."
     - character:
         name: Vieille femme
-        icon: {fileID: 0}
       line: "Merci infiniment, mon cher. Vous \xEAtes tr\xE8s aimable. Passez une
         bonne nuit, et \xE0 demain.\n[Elle raccroche d\xE9licatement.]"
 --- !u!1 &733484592
@@ -7281,12 +7270,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832575517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1670031266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &835644203
 GameObject:
@@ -9309,7 +9298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -154.64966, y: -119.09158}
+  m_AnchoredPosition: {x: -293, y: -119.09158}
   m_SizeDelta: {x: -1307.0193, y: -1036.5374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092748443
@@ -9325,7 +9314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9384,7 +9373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -246.5, y: 170.1}
+  m_AnchoredPosition: {x: -217.5, y: 139.7}
   m_SizeDelta: {x: 307.24, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094701614
@@ -9435,8 +9424,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15282,6 +15271,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2090345702}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1670031265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1670031266}
+  m_Layer: 0
+  m_Name: Post Processing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1670031266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670031265}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 832575519}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1671833804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3179971586780141778, guid: ca8ef71977f4ff54ca7ef29930cb662a,
@@ -15724,7 +15745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 135.49078, y: -308.6564}
+  m_AnchoredPosition: {x: -2.859558, y: -308.65637}
   m_SizeDelta: {x: -726.7384, y: -834.6972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716729303
@@ -15740,7 +15761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17758,8 +17779,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18917,7 +18938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Space
+  m_text: espace
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18926,8 +18947,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 1845493759
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.42745098}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19601,7 +19622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1971683827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20013,8 +20034,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -20982,7 +21003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: -401}
+  m_AnchoredPosition: {x: 486, y: -401}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064515057
@@ -21054,7 +21075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22237,7 +22258,7 @@ SceneRoots:
   - {fileID: 1771536923}
   - {fileID: 1803507393}
   - {fileID: 1322126754}
-  - {fileID: 832575519}
+  - {fileID: 1670031266}
   - {fileID: 1140982021}
   - {fileID: 193002574}
   - {fileID: 1060057983}
