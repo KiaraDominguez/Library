@@ -6,6 +6,10 @@ public class LightOnAndOff : MonoBehaviour
 {
     [SerializeField] Light lux;
     [SerializeField] Light redLightFuses;
+    [SerializeField] Light redLightFusesCouloir1;
+    [SerializeField] Light redLightFusesCouloir2;
+
+
 
     [SerializeField] GameObject obj_1;
     [SerializeField] GameObject obj_2;
@@ -25,6 +29,9 @@ public class LightOnAndOff : MonoBehaviour
     void Start()
     {
         redLightFuses.enabled = false;
+        redLightFusesCouloir1.enabled = false;
+        redLightFusesCouloir2.enabled = false;
+
         DesactivatedLuxSecours();
 
         audioSource = radio.GetComponent<AudioSource>();
@@ -56,6 +63,9 @@ public class LightOnAndOff : MonoBehaviour
     private void OnMouseDown()
     {
         redLightFuses.enabled = false;
+        redLightFusesCouloir1.enabled = false;
+        redLightFusesCouloir2.enabled = false;
+
         DesactivatedLuxSecours();
         lightON = !(lightON);
         Fix();
@@ -64,7 +74,11 @@ public class LightOnAndOff : MonoBehaviour
     private void TurnOffLights()
     {
         lightON =true;
+
         redLightFuses.enabled = true;
+        redLightFusesCouloir1.enabled = true;
+        redLightFusesCouloir2.enabled = true;
+
         ActivatedLuxSecours();
         audioSource.Stop();
     }
