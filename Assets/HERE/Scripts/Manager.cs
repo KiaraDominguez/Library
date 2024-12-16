@@ -53,7 +53,7 @@ public class Manager : MonoBehaviour
     private string txtblackout = "Trouve et active le disjoncteur";
     private string txtfirstbookcall = "Le téléphone Sonne";
     private string txtfirstbook = "Trouve un moyen de localiser le Lire du Dr. Elias";
-    private string txtfirstbookLocation = "::::";
+    private string txtfirstbookLocation = "B-1-b";
     private string txtinstructionEspace = "appuie sur ESPACE pour le mettre en réserve";
 
     // jumpscare
@@ -98,6 +98,7 @@ public class Manager : MonoBehaviour
     }
     void Update()
     {
+        
         CallBoss();
 
         //RULEBOOK LU //
@@ -108,7 +109,7 @@ public class Manager : MonoBehaviour
             StartCoroutine(CoroutineFirstBlackOut());
 
         }
-        if (blackOutFix )
+        if (blackOutFix)
         {
             Debug.Log("je rentre");
             // ICI JUMPSCARE
@@ -118,7 +119,7 @@ public class Manager : MonoBehaviour
             firstBook.SetActive(true);
             startCallFirstCostumer =true;
             FirstBookCall();
-            mission.text = txtfirstbookcall;
+            mission.text = "";
         }
 
         // FIRST BOOK
@@ -173,6 +174,8 @@ public class Manager : MonoBehaviour
     }
     public void FirstBookCall()
     {
+        
+        litTheBook = false;
         appelRepondu = phone.appelRepondu;
 
         if (startCallFirstCostumer)

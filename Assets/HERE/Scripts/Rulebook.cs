@@ -56,7 +56,7 @@ public class Rulebook : MonoBehaviour
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && rulebookIsOpen)
+        if (Input.GetKeyDown(KeyCode.Space) && rulebookIsOpen)
         {
             count++;
             rulebookIsOpen=false;

@@ -135,33 +135,33 @@ public class AnnaManager : MonoBehaviour
         {
              case "author":
                 search.SetActive(true);
-                instruction.text = "enter the author name";
+                instruction.text = "entrez le nom de l'auteur";
                 typeIsChoosed = true;
                 //buttonSearchAuthor.interactable = true;
                 break;
              case "code":
                 search.SetActive(true);
-                instruction.text = "enter the code";
+                instruction.text = "entrez le code";
                 typeIsChoosed = true;
 
                 break;
              case "genre":
                 search.SetActive(true);
-                instruction.text = "enter the genre";
+                instruction.text = "entrez le genre";
 
                 typeIsChoosed = true;
 
                 break;
              case "title":
                 search.SetActive(true);
-                instruction.text = "enter the title";
+                instruction.text = "entrez le titre";
 
                 typeIsChoosed = true;
 
                 break;
              case "year":
                 search.SetActive(true);
-                instruction.text = "enter the year of publication";
+                instruction.text = "entrez l'année de publication";
                 typeIsChoosed = true;
 
                 break;
@@ -193,9 +193,9 @@ public class AnnaManager : MonoBehaviour
         if(name==firstAuthorName1 || name == firstAuthorName2)
         {
             instruction.text = "Dr. Elias Varnem";
-            books.text = ">> Rituals of Invocation Through the Ages: A Comparative Study";
-            books.text += "\n>> The Forbidden Manuscripts: Studies on Texts Condemned by the Church";
-            books.text += "\n>> The Science of Seals: Cryptographic and Spiritual Studies";
+            books.text = ">> Les rituels à travers les âges : une étude comparative V.01 - 1873 --> B-1-b";
+            books.text += "\n>> Les rituels à travers les âges : une étude comparative V.02 - 1880 ---> /-/-/";
+            books.text += "\n>> Les rituels à travers les âges : une étude comparative V.3 - 1900 ---> /-/-/";
 
             instruction_2.text = string.Empty;
             searchField.text = string.Empty;

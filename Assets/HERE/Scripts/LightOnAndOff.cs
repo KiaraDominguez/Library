@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class LightOnAndOff : MonoBehaviour
@@ -29,7 +30,6 @@ public class LightOnAndOff : MonoBehaviour
 
     [SerializeField] GameObject anna;
 
-
     void Start()
     {
         redLightFuses.enabled = false;
@@ -39,6 +39,7 @@ public class LightOnAndOff : MonoBehaviour
         DesactivatedLuxSecours();
 
         audioSource = radio.GetComponent<AudioSource>();
+        
     }
     void OnEnable()
     {
@@ -51,6 +52,7 @@ public class LightOnAndOff : MonoBehaviour
     }
     void Update()
     {
+        
         if (!lightON)
         {
             fuse_Off.SetActive(false);
@@ -88,7 +90,7 @@ public class LightOnAndOff : MonoBehaviour
         redLightFusesCouloir2.enabled = true;
 
         ActivatedLuxSecours();
-        audioSource.Stop();
+        audioSource.Pause();
     }
     private void TurnOnLights()
     {
@@ -98,7 +100,7 @@ public class LightOnAndOff : MonoBehaviour
 
     public void Fix()
     {
-        Manager.blackOutFix = true;
+            Manager.blackOutFix = true;
     }
     public void ActivatedLuxSecours()
     {
@@ -120,4 +122,5 @@ public class LightOnAndOff : MonoBehaviour
         obj_6.SetActive(false);
         obj_7.SetActive(false);
     }
+
 }

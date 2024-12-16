@@ -14,6 +14,7 @@ public class Scare : MonoBehaviour
     private SkinnedMeshRenderer bodySkinnedMeshRenderer;
 
     private bool playerSawItOnce;
+
     void Start()
     {
         faceSkinnedMeshRenderer = face.GetComponent<SkinnedMeshRenderer>();
@@ -23,6 +24,7 @@ public class Scare : MonoBehaviour
         bodyOriginalColor = bodySkinnedMeshRenderer.material.color;
 
         SetObjectVisibility(false);
+
     }
 
     private void OnTriggerEnter(Collider other)
