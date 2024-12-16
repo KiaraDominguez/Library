@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Scare : MonoBehaviour
@@ -15,6 +17,24 @@ public class Scare : MonoBehaviour
 
     private bool playerSawItOnce;
 
+    [SerializeField] GameObject lightGeneral;
+    private Animator animator;
+
+    private AudioSource audioSource;
+
+    private IEnumerator DesactivateLight(float seconds)
+    {
+        yield return new WaitForSeconds(0.25f);
+        lightGeneral.SetActive(false);
+        yield return new WaitForSeconds(seconds);
+        lightGeneral.SetActive(true);
+        
+    }
+
+    public void StartAnimationCoroutine()
+    {
+        StartCoroutine(DesactivateLight(1.75f));
+    }
     void Start()
     {
         faceSkinnedMeshRenderer = face.GetComponent<SkinnedMeshRenderer>();
@@ -25,13 +45,19 @@ public class Scare : MonoBehaviour
 
         SetObjectVisibility(false);
 
+        animator = lightGeneral.GetComponent<Animator>();
+        audioSource = lightGeneral.GetComponent<AudioSource>();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!playerSawItOnce) 
         {
+            PlayRing();
             SetObjectVisibility(true);
+            animator.SetTrigger("scare");
+            //TemporarilyDeactivate();
         }
         playerSawItOnce = true;
 
@@ -39,6 +65,7 @@ public class Scare : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
+        StopRing();
         SetObjectVisibility(false);
     }
 
@@ -55,5 +82,14 @@ public class Scare : MonoBehaviour
             faceSkinnedMeshRenderer.material.color = new Color(faceOriginalColor.r, faceOriginalColor.g, faceOriginalColor.b, 0f); // Rendre transparent
             bodySkinnedMeshRenderer.material.color = new Color(bodyOriginalColor.r, bodyOriginalColor.g, bodyOriginalColor.b, 0f); // Rendre transparent
         }
+    }
+
+    public void PlayRing()
+    {
+        audioSource.Play();
+    }
+    public void StopRing()
+    {
+        audioSource.Stop();
     }
 }
