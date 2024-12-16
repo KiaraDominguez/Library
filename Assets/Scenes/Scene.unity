@@ -4102,6 +4102,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   firstBook: firstBook
+  secondBook: secondBook
+  thirdBook: secondBook
 --- !u!1 &331147342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4956,8 +4958,8 @@ MonoBehaviour:
       line: "Tes t\xE2ches sont simples : je t'ai laisser un post-it dans la salle
         de repos avec une liste de livres que je veux que tu mettes de c\xF4t\xE9.
         Ah, et parfois certains de nos clients\u2026 sp\xE9ciaux appellent la nuit
-        pour r\xE9server des livres. Tu devras les mettre de c\xF4t\xE9 dans la r\xE9serve.
-        Suis bien leurs instructions."
+        pour r\xE9server des livres, suis bien leurs instructions ,ils sont prioritaires
+        sur mes demandes."
     - character:
         name: BOSS
       line: "Il y a un pense b\xEAte laisser par le dernier employ\xE9 de nuit dans
@@ -8375,6 +8377,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1060057983}
     m_Modifications:
+    - target: {fileID: 537833017573878256, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      propertyPath: m_Name
+      value: secondBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 537833017573878256, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4021711124525574523, guid: 18862654625b6184791614d21c04195f,
         type: 3}
       propertyPath: m_Name
@@ -8433,8 +8445,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 537833017573878256, guid: 18862654625b6184791614d21c04195f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648567188}
   m_SourcePrefab: {fileID: 100100000, guid: 18862654625b6184791614d21c04195f, type: 3}
+--- !u!1 &648567187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 537833017573878256, guid: 18862654625b6184791614d21c04195f,
+    type: 3}
+  m_PrefabInstance: {fileID: 648567186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &648567188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648567187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0017746472, y: 0.0064765913, z: 0.0073920037}
+  m_Center: {x: -0.007364832, y: -0.0019437626, z: 0.0014578508}
 --- !u!1 &649329028
 GameObject:
   m_ObjectHideFlags: 0
@@ -14001,7 +14044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- Caleb Arkwright : Le Voile des Murmures 1930\nB-1-b\n\n- -------- :
+  m_text: "- Caleb Arkwright : Le Voile des Murmures 1930\nP-3-c\n\n- -------- :
     Les Rites des Dieux Oubli\xE9s 1955\n/-/-/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f61ce63baae5c7f41a0b256450034b85, type: 2}

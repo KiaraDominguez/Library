@@ -6,7 +6,10 @@ public class RayCast : MonoBehaviour
 {
     public float pickupRange = 5f; // Distance maximale pour ramasser un objet
     public LayerMask interactableLayer; // Couches des objets ramassables
-    public string firstBook = "firstBook"; // Nom de l'objet spécifique à ramasser
+    public string firstBook = "firstBook";
+    public string secondBook = "secondBook";
+    public string thirdBook = "secondBook";
+
 
     private Camera playerCamera;
 
@@ -14,19 +17,14 @@ public class RayCast : MonoBehaviour
 
     void Start()
     {
-        // Récupère la caméra attachée à l'objet
         playerCamera = GetComponent<Camera>();
-        if (playerCamera == null)
-        {
-            Debug.LogError("Aucune caméra trouvée sur cet objet. Attachez ce script à la caméra principale.");
-        }
     }
 
     void Update()
     {
         CheckForBook();
 
-        if (Input.GetKeyDown(KeyCode.Space) && Manager.playerSeeFirstBook)
+        if (Input.GetKeyDown(KeyCode.Space)) //&& Manager.playerSeeFirstBook)
         {
             Debug.Log("espace");
 
@@ -53,7 +51,6 @@ public class RayCast : MonoBehaviour
             }
         }
     }
-
     void TryPickupObject()
     {
         // Crée un raycast à partir du centre de l'écran
@@ -66,19 +63,23 @@ public class RayCast : MonoBehaviour
             GameObject pickedObject = hit.collider.gameObject;
 
             // Vérifie si c'est le premier livre
-            if (pickedObject.name == firstBook)
+            if (pickedObject.name == firstBook )
             {
-                //Debug.Log("Vous avez ramassé le premier livre !");
-
                 pickedObject.SetActive(false);
                 Manager.playerSeeFirstBook = false;
-
+            }
+            else if (pickedObject.name == secondBook)
+            {
+                
+                pickedObject.SetActive(false);
+            }
+            else if (pickedObject.name == thirdBook)
+            {
+                
+                pickedObject.SetActive(false);
             }
         }
-        else
-        {
-            //Debug.Log("Aucun objet à ramasser.");
-        }
+
     }
 
     void ShowRaycast()
