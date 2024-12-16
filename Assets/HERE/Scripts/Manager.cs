@@ -91,7 +91,7 @@ public class Manager : MonoBehaviour
 
     IEnumerator CoroutineFirstBlackOut()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(10);
         rule.rulebookHasBeenRaed = false;
         TriggerBlackOut();
         mission.text = txtblackout;
