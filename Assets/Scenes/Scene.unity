@@ -1488,6 +1488,7 @@ MonoBehaviour:
   typingSpeed: 0.05
   canvasGroup: {fileID: 168296207}
   canIHungUp: 0
+  jePeuxRaccrocher: 0
 --- !u!225 &168296207
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18106,6 +18107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneAnswer: 0
+  appelRepondu: 0
   sound: {fileID: 8300000, guid: 2b78f9401faa19b48961968301edc650, type: 3}
 --- !u!65 &1575922736
 BoxCollider:
@@ -27606,7 +27608,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 104.151
+      value: 15.67
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
@@ -27616,7 +27618,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 105.7641
+      value: -45.9
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}

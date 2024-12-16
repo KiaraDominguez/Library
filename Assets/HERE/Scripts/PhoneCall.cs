@@ -15,6 +15,7 @@ public class PhoneCall : MonoBehaviour
 
     //BOOL POUR LE MANAGER//
     public bool phoneAnswer;
+    public bool appelRepondu;
 
     public AudioClip sound;
     private AudioSource audioSource;
@@ -36,7 +37,7 @@ public class PhoneCall : MonoBehaviour
         Manager.callHasBeenAnswerStopTheRing -= HangUpPhone;
 
     }
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Vérifie le clic gauche
@@ -57,7 +58,8 @@ public class PhoneCall : MonoBehaviour
 
     public void StartRinging()
     {
-        
+        phoneAnswer = false;
+        appelRepondu = false;
         // Le téléphone commence à sonner
         isRinging = true;
         isAnswering = false;
@@ -73,6 +75,7 @@ public class PhoneCall : MonoBehaviour
     {
         //BOOL POUR LE MANAGER// (pour lui faire savoir que le player a répondu au téléphone)
         phoneAnswer = true;
+        appelRepondu = true;
         // L'utilisateur répond au téléphone
 
         isRinging = false;
@@ -96,6 +99,7 @@ public class PhoneCall : MonoBehaviour
         animator.SetBool("isAnswering", false);
         animator.SetBool("isHangingUp", isHangingUp);
     }
+
     public void PlayRing()
     {
         audioSource.PlayOneShot(sound);

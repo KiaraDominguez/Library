@@ -28,6 +28,7 @@ public class Manager : MonoBehaviour
 
     //SURBRILLANCE DU RULEBOOK//
     public static event Action litRuleBook;
+    private bool litTheBook; 
 
     // BLACK-OUT
     public static event Action firstBlackOut;
@@ -40,11 +41,17 @@ public class Manager : MonoBehaviour
     public static bool playerSeeFirstBook;
     public static event Action firstBookLit;
 
+    // CALL FIRST COSTUMER
+    private bool startCallFirstCostumer;
+    private bool appelRepondu;
+    
+
     //MISSIONS
     public TextMeshProUGUI mission;
     private string txtphone = "Répond au téléphone";
     private string txtrulebook = "Lis le réglèment d'intérieur";
     private string txtblackout = "Trouve et active le disjoncteur";
+    private string txtfirstbookcall = "Le téléphone Sonne";
     private string txtfirstbook = "Trouve un moyen de localiser le Lire du Dr. Elias";
     private string txtfirstbookLocation = "::::";
     private string txtinstructionEspace = "appuie sur ESPACE pour le mettre en réserve";
@@ -97,18 +104,21 @@ public class Manager : MonoBehaviour
         rulebookRead = rule.rulebookHasBeenRaed;
         if (rulebookRead) 
         {
+            litTheBook = false;
             StartCoroutine(CoroutineFirstBlackOut());
 
         }
-        if (blackOutFix)
+        if (blackOutFix )
         {
+            Debug.Log("je rentre");
             // ICI JUMPSCARE
             TriggerJumpscare();
 
             boss.SetActive(false);
             firstBook.SetActive(true);
+            startCallFirstCostumer =true;
             FirstBookCall();
-            mission.text = txtfirstbook;
+            mission.text = txtfirstbookcall;
         }
 
         // FIRST BOOK
@@ -143,6 +153,7 @@ public class Manager : MonoBehaviour
             TriggerStartDialogue();
             phone.phoneAnswer = false;
             startCallBoss = false;
+            litTheBook = true;
         }
         if (DialogueManager.Instance.canIHungUp)
         {
@@ -150,7 +161,7 @@ public class Manager : MonoBehaviour
             TriggerStopTheRing();
             DialogueManager.Instance.canIHungUp = false;
 
-            if (!blackOutFix)
+            if (litTheBook)
             {
                 //SURBRILLANCE DU RULEBOOK//
                 TriggerTheRuleBook();
@@ -162,24 +173,25 @@ public class Manager : MonoBehaviour
     }
     public void FirstBookCall()
     {
-        phoneAnswer = phone.phoneAnswer;
+        appelRepondu = phone.appelRepondu;
 
-        //if (startCallBoss)
-        //{
+        if (startCallFirstCostumer)
+        {
             TriggerPhoneRinging();
-        //}
-        if (phoneAnswer)
+        }
+        if (appelRepondu)
         {
             TriggerStartDialogue();
-            phone.phoneAnswer = false;
-            //startCallBoss = false;
+            phone.appelRepondu = false;
+            startCallFirstCostumer = false;
+            blackOutFix = false;
         }
-        if (DialogueManager.Instance.canIHungUp)
+        if (DialogueManager.Instance.jePeuxRaccrocher)
         {
-            //Debug.Log(canIHungUp);
+            Debug.Log("jePeuxRaccrocher");
             TriggerStopTheRing();
-            //DialogueManager.Instance.canIHungUp = false;
-
+            DialogueManager.Instance.jePeuxRaccrocher = false;
+            mission.text = txtfirstbook;
         }
     }
 
@@ -232,7 +244,6 @@ public class Manager : MonoBehaviour
             firstBookLit.Invoke();
         }
     }
-
 }
 
 

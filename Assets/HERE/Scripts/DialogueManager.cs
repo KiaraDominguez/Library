@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     //private bool callBeenAnswer;
     public bool canIHungUp;
+    public bool jePeuxRaccrocher;
     void Awake()
     {
         if (Instance == null)
@@ -45,6 +46,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         canIHungUp = false;
+        jePeuxRaccrocher = false;
+
         isDialogueActive = true;
 
             lines.Clear();
@@ -86,7 +89,7 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = false;
         canIHungUp = true;
-        
+        jePeuxRaccrocher = true;
     }
 
     void Update()
