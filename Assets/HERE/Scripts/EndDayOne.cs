@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpSeconThird : MonoBehaviour
+public class EndDayOne : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static int score;
     void Start()
     {
         
@@ -13,6 +13,9 @@ public class PickUpSeconThird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (score == 3)
+        {
+            Debug.Log("Fin");
+        }
     }
 }

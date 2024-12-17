@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LightOnAndOff : MonoBehaviour
 {
+    [SerializeField] Light luxGeneral;
+
     [SerializeField] Light lux;
     [SerializeField] Light redLightFuses;
     [SerializeField] Light redLightFusesCouloir1;
@@ -58,12 +60,14 @@ public class LightOnAndOff : MonoBehaviour
             fuse_Off.SetActive(false);
             fuse_On.SetActive(true);
             lux.enabled = true;
+            luxGeneral.enabled = true;
         }
         else
         {
             fuse_Off.SetActive(true);
             fuse_On.SetActive(false);
             lux.enabled = false;
+            luxGeneral.enabled = false;
         }
     }
     private void OnMouseDown()

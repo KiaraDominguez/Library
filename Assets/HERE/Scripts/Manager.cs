@@ -60,6 +60,13 @@ public class Manager : MonoBehaviour
 
     public static event Action jumpscare;
 
+    // SECOND BOOK
+    public static bool playerSeeSecondBook;
+    public static event Action secondBookLit;
+
+    // THIRD BOOK
+    public static bool playerSeeThirdBook;
+    public static event Action thirdBookLit;
 
     void Start()
     {
@@ -91,7 +98,7 @@ public class Manager : MonoBehaviour
 
     IEnumerator CoroutineFirstBlackOut()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
         rule.rulebookHasBeenRaed = false;
         TriggerBlackOut();
         mission.text = txtblackout;
@@ -111,7 +118,6 @@ public class Manager : MonoBehaviour
         }
         if (blackOutFix)
         {
-            Debug.Log("je rentre");
             // ICI JUMPSCARE
             TriggerJumpscare();
 
@@ -119,7 +125,7 @@ public class Manager : MonoBehaviour
             firstBook.SetActive(true);
             startCallFirstCostumer =true;
             FirstBookCall();
-            mission.text = "";
+            //mission.text = "";
         }
 
         // FIRST BOOK
@@ -130,6 +136,14 @@ public class Manager : MonoBehaviour
             
             TriggerFirstBookLit();
             mission.text = txtinstructionEspace;
+        }
+        if (playerSeeSecondBook)
+        {
+            TriggerSecondBookLit();
+        }
+        if (playerSeeThirdBook)
+        {
+            TriggerThirdBookLit();
         }
 
     }
@@ -245,6 +259,20 @@ public class Manager : MonoBehaviour
         if (firstBookLit != null)
         {
             firstBookLit.Invoke();
+        }
+    }
+    private void TriggerSecondBookLit()
+    {
+        if (secondBookLit != null)
+        {
+            secondBookLit.Invoke();
+        }
+    }
+    private void TriggerThirdBookLit()
+    {
+        if (thirdBookLit != null)
+        {
+            thirdBookLit.Invoke();
         }
     }
 }

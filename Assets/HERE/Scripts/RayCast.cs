@@ -8,7 +8,7 @@ public class RayCast : MonoBehaviour
     public LayerMask interactableLayer; // Couches des objets ramassables
     public string firstBook = "firstBook";
     public string secondBook = "secondBook";
-    public string thirdBook = "secondBook";
+    public string thirdBook = "thirdBook";
 
 
     private Camera playerCamera;
@@ -49,6 +49,15 @@ public class RayCast : MonoBehaviour
                 playerSawBook = 1;
                 //Debug.Log("Le joueur voit le premier livre.");
             }
+            if (hit.collider.gameObject.name == secondBook)
+            {
+                Manager.playerSeeSecondBook = true;   
+            }
+            if (hit.collider.gameObject.name == thirdBook)
+            {
+                Debug.Log("Je rentre");
+                Manager.playerSeeThirdBook = true;
+            }
         }
     }
     void TryPickupObject()
@@ -67,16 +76,22 @@ public class RayCast : MonoBehaviour
             {
                 pickedObject.SetActive(false);
                 Manager.playerSeeFirstBook = false;
+
+                EndDayOne.score += 1;
             }
             else if (pickedObject.name == secondBook)
             {
-                
                 pickedObject.SetActive(false);
+                Manager.playerSeeSecondBook = false;
+
+                EndDayOne.score += 1;
             }
             else if (pickedObject.name == thirdBook)
             {
-                
                 pickedObject.SetActive(false);
+                Manager.playerSeeThirdBook = false;
+
+                EndDayOne.score += 1;
             }
         }
 

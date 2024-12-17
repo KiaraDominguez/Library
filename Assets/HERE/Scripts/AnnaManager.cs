@@ -40,6 +40,9 @@ public class AnnaManager : MonoBehaviour
     private string firstAuthorName1 = "elias";
     private string firstAuthorName2 = "varnem";
 
+    private string secondAuthorName1 = "leila";
+    private string secondAuthorName2 = "maetan";
+
     [SerializeField] TextMeshProUGUI books;
     public TextMeshProUGUI instruction_2;
 
@@ -202,6 +205,15 @@ public class AnnaManager : MonoBehaviour
 
             firstBookOKAY = true;
             Manager.firstBookLocationUnlock = firstBookOKAY;
+        }
+        else if (name == secondAuthorName1 || name == secondAuthorName2)
+        {
+            instruction.text = "Leila Maetan";
+            books.text = ">> Joe et Liam - 1953 --> S-2-d";
+            books.text += "\n>>Quand je serais grande - 1955 ---> T-1-d";
+
+            instruction_2.text = string.Empty;
+            searchField.text = string.Empty;
         }
     }
     void ExitAnna()
