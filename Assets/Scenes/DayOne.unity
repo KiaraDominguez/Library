@@ -14945,7 +14945,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 1, b: 0.2178235, a: 1}
+  m_fontColor: {r: 0.45098042, g: 0.9450981, b: 0.8705883, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24073,7 +24073,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c191fb750a4e3a6478d8fb5bef9b5c6e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 931ec96f09762ec4ab94d7e1375f6e7e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.238
   m_Pitch: 1
@@ -34744,6 +34744,16 @@ PrefabInstance:
       propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 483181771751855643, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04f8f895fca3ce740907db11c04e0ffb, type: 2}
+    - target: {fileID: 2775317004676677478, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57d2f5454f4417f44951ceb473e8aea1, type: 2}
     - target: {fileID: 4794476984032656884, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_Name
@@ -34772,7 +34782,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.67
+      value: 104.151
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
@@ -34782,7 +34792,7 @@ PrefabInstance:
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.9
+      value: 106.14
       objectReference: {fileID: 0}
     - target: {fileID: 5315012574364641102, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
@@ -34824,6 +34834,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6746220855230664525, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57d2f5454f4417f44951ceb473e8aea1, type: 2}
     - target: {fileID: 8174350074923039560, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
         type: 3}
       propertyPath: lux
@@ -34894,6 +34909,11 @@ PrefabInstance:
       propertyPath: redLightFusesCouloir2
       value: 
       objectReference: {fileID: 2079343373}
+    - target: {fileID: 9144351241882510033, guid: 6bb6a0e62fdd6a4469207eded4ec51a9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8effda2f937bbd346964c06482326809, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
